@@ -23,7 +23,7 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-gist": "^1.2.1",
-    "react-icomoon": "^2.1.3"
+    "react-icomoon": "2.1.3"
   },
   "devDependencies": {
     "husky": "^4.2.5",

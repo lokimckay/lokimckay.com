@@ -1,0 +1,45 @@
+h1 {
+  font-family: Montserrat, sans-serif;
+}
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Roboto, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.mdxHeading * a {
+  color: black;
+}
+
+.mdxHeading * a:hover {
+  color: black;
+}
+
+.mdxHeading {
+  border-bottom: 1px dotted transparent;
+}
+
+.mdxHeading:hover * a {
+  color: black;
+  border-bottom: 1px dotted black;
+}
+
+.mdxHeadingIcon {
+  visibility: hidden;
+}
+
+.mdxHeading:hover * .mdxHeadingIcon {
+  visibility: visible;
+}
