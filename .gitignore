@@ -1,0 +1,22 @@
+# Logs
+logs
+*.log
+
+# next.js build output
+.next
+.mdx-data
+
+# dependencies
+/node_modules
+
+# NPM and Yarn
+.npm
+*.tgz
+.node_repl_history
+.yarn-integrity
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# image
+Thumbs.db

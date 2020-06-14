@@ -1,0 +1,105 @@
+---
+title: "Cowboy"
+subtitle: "Character Model"
+date: "2017/02/01"
+tags: ["cgModelling"]
+preview: "9efbd259991a5b0beb3de2b5ab1f672e701dde8e-2440x1660.png"
+focalX: 0
+focalY: 0.4
+---
+
+import Image from "../../../components/mdx/image";
+
+export const turntables = [
+  {
+    url: "4f5a20f53f6c32a8aca673ea80a318a597f08dc4-490x720.gif",
+    name: "turntable",
+  },
+  {
+    url: "5eff024afd96e837eb14d778c21488e7a5627e10-490x720.gif",
+    name: "turntable wireframe",
+  },
+];
+
+export const faces = [
+  {
+    url: "031f32b5c1fadbf975b45a44ff1e0cc7ad916202-2440x1660.png",
+    name: "3/4 face",
+  },
+  {
+    url: "9efbd259991a5b0beb3de2b5ab1f672e701dde8e-2440x1660.png",
+    name: "3/4 face wireframe",
+  },
+];
+
+export const orthos = [
+  {
+    url: "d5fa8356a0df67153e4428325142864c8b97c4b5-1660x2440.png",
+    name: "3/4",
+  },
+  {
+    url: "befec5b0a4d3927e8c8eea14147c6dd799086e08-1660x2440.png",
+    name: "front",
+  },
+  {
+    url: "43fb33b7cae8b8af4056cfe8f9ea551edb550190-1660x2440.png",
+    name: "side",
+  },
+];
+
+Lopoly biped (3720 polys) made for fun. Modeled in Maya, rendered in Blender.
+
+<div
+  style={{
+    display: "flex",
+    justifyContent: "center",
+    flexWrap: "wrap",
+    marginTop: 24,
+  }}
+>
+  <Image
+    url="81d61821e1776ac04662fd0b28dc4b264514766b-720x720.gif"
+    resize="post"
+    style={{
+      width: 800,
+      objectFit: "cover",
+    }}
+  />
+  {turntables.map((turntable, index) => (
+    <Image
+      key={index}
+      url={turntable.url}
+      resize="halfPost"
+      style={{
+        width: 396,
+        objectFit: "cover",
+        marginRight: index % 2 === 0 ? 8 : 0,
+      }}
+    />
+  ))}
+  {faces.map((face, index) => (
+    <Image
+      key={index}
+      url={face.url}
+      resize="halfPost"
+      style={{
+        width: 396,
+        objectFit: "cover",
+        marginRight: index === 0 ? 8 : 0,
+      }}
+    />
+  ))}
+  {orthos.map((ortho, index) => (
+    <Image
+      key={index}
+      url={ortho.url}
+      resize="post"
+      style={{
+        width: 262,
+        objectFit: "cover",
+        marginRight: index === 0 ? 6 : 0,
+        marginLeft: index + 1 === orthos.length ? 6 : 0,
+      }}
+    />
+  ))}
+</div>

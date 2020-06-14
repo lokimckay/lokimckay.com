@@ -1,0 +1,63 @@
+---
+title: "Developer Setup 2020"
+date: "2020/06/03"
+tags: ["code"]
+---
+
+In this post I will walk-through my personal developer setup and preferred tools, while explaining my choices along the way.
+
+## Directory Structure
+
+I keep all my developer related work under `C:/dev/` and then pin the subfolders to my Quick Access.
+
+```c
+C:/dev/
+  │
+  ├── apps/         // installed programs go here
+  │
+  ├── installers/   // downloaded installer files, so you can uninstall later
+  │
+  ├── repos/        // git repositories
+  │
+  └── shortcuts/    // shortcuts to deep paths that you frequently visit
+                    // E.g. C:\WINDOWS\System32\drivers\etc\hosts
+```
+
+## Quick Access
+
+Making the windows file explorer Quick Access more useful:
+
+1. Create the above directory structure
+1. On Windows 10 go to `File` -> `Change folder and search options` in an explorer window
+1. Under Privacy, untick Show recently used files in Quick Access
+1. Unpin any unwanted items from Quick Access
+1. Pin the above folders from `C:/dev/` to Quick Access by right clicking them
+
+## Git
+
+Industry standard source code management. We use this so that we never lose our work, and never make an un-correctable mistake when coding.
+Download it here to `C:/dev/installers`, and install it to `C:/dev/apps`
+
+## Terminal
+
+Cloud computing is cemented in many production tech stacks nowadays. In order to be comfortable navigating GUI-less remote machines, every developer should be familiar with the basics of traversing their local machine via terminal.
+
+Don’t get stuck in the trap of just using the Git bash terminal that comes with git. You will limit yourself to a subpar terminal experience.
+Instead use one of these:
+
+- If you have Windows 10, install Windows Terminal and follow my guide for setting it up (TBA)
+- If you do not have Windows 10, install Hyper instead and follow my guide for setting it up (TBA)
+
+## Editor
+
+You want your code editor to be as lightweight as possible and not get in your way, but still provide bare necessity features such as syntax highlighting.
+2 choices, both equally great:
+
+- Atom (created by Github)
+- Visual Studio Code (created by Microsoft)
+
+I currently use VS Code
+
+## Node version manager (NVM)
+
+If you are not working with node.js, skip this one

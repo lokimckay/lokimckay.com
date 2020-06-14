@@ -1,0 +1,139 @@
+---
+title: "Portfolio using Hugo"
+date: "2017/01/01"
+tags: ["code"]
+preview: "451f1cbc63c36467fc4ec54392579e5d1007c874-1680x913.png"
+---
+
+import Link from "next/link";
+import Image from "../../../components/mdx/image";
+
+export const full = [
+  {
+    url: "5d42353c53a979c08f6fab8f4d4124afffbcbf5f-1600x871.png",
+    name: "About Page",
+  },
+];
+
+export const half = [
+  {
+    url: "44471c3db4c593a1daaaf8160bb2ff4f61ead25d-1680x915.png",
+    name: "Blank Splash",
+  },
+  {
+    url: "451f1cbc63c36467fc4ec54392579e5d1007c874-1680x913.png",
+    name: "Tank Soccer",
+  },
+  {
+    url: "af446323c1f77aa12a7cc52fb49e2931b87b9c9a-1600x888.png",
+    name: "Gallery",
+  },
+  {
+    url: "bfceb977aa193741523ea2150e3e2252deef8112-1600x871.png",
+    name: "Instagram Feed",
+  },
+];
+
+## Summary
+
+Version 1 of `lachlanmckay.com` was a great success in that I was
+able to get my feet wet with hosting, deployment and some source
+management using Hugo. However it still had many problems related to
+load times, SEO and navigtation. I aimed to fix these issues in the
+second version, which you can <Link href="/posts/2018/jekyll">read about here</Link>
+
+<div
+  style={{
+    display: "flex",
+    justifyContent: "center",
+    flexWrap: "wrap",
+    marginTop: 24,
+  }}
+>
+  {full.map((img, index) => (
+    <Image
+      key={index}
+      alt={img.name}
+      url={img.url}
+      resize="post"
+      style={{
+        width: 800,
+        objectFit: "cover",
+      }}
+    />
+  ))}
+  {half.map((img, index) => (
+    <Image
+      key={index}
+      alt={img.name}
+      url={img.url}
+      resize="halfPost"
+      style={{
+        width: 396,
+        height: 225,
+        marginRight: index % 2 === 0 ? 8 : 0,
+        objectFit: "cover",
+      }}
+    />
+  ))}
+</div>
+
+## Rationale
+
+The aim for this project was to create a personal website that I could
+show to potential employers. I wanted it to include a portfolio of
+impressive visual content as the main attraction.
+
+## Objectives
+
+- Visually impressive
+- Able to be presented to potential employers
+- Displays my work
+- Code, deploy and host my first website
+
+## Technologies
+
+The tables below give a complete list of all the technologies involved
+in the first phase of this site, and how I used them.
+
+<hr />
+
+### Hosting Tech
+
+| Technology                                                | Use                                         |
+| --------------------------------------------------------- | ------------------------------------------- |
+| [Github](https://github.com/sneyed)                       | Source code hosting                         |
+| [AWS S3](https://aws.amazon.com/s3/)                      | Static file hosting                         |
+| [Google Cloud Storage](https://cloud.google.com/storage/) | Media file hosting (images/video/pdfs etc.) |
+
+### Development Tech
+
+| Technology                                                 | Use                                                          |
+| ---------------------------------------------------------- | ------------------------------------------------------------ |
+| [Hugo](https://jekyllrb.com/)                              | Static HTML generation. Main development tool                |
+| [Sass](https://sass-lang.com/)                             | CSS preprocessing (built into Jekyll)                        |
+| [Jquery](https://jquery.com/)                              | Powerful javascript extension, required by other .js plugins |
+| [Git](https://git-scm.com/)                                | Version control                                              |
+| [Real Favicon Generator](http://realfavicongenerator.net/) | Creating favicon files for many platforms                    |
+
+## Retrospective
+
+#### What went well?
+
+- Splash page - Full page youtube video background with audio playing is very cool
+- Gallery shows a lot of my work in a single page
+- Animated gifs give the user lots of interesting things to look at
+
+#### What could be improved?
+
+- All images (particularly gallery images) are too big for the space they occupy. It takes way too long to load gallery pages
+- It takes way too long to load youtube background video, people would have clicked on something already
+- Navigation images are cool, but the user does not immediately know where they will be going like they would with text
+- Splash page does not help SEO efforts
+- Source code is somewhat messy - things that should be in the theme are in site content directories
+- Audio on a homepage can be annoying, maybe it should be removed
+
+#### What still puzzles me?
+
+- How to layout gallery images in a nice format similar to pInterest
+- Should I completely eliminate the splash page?
