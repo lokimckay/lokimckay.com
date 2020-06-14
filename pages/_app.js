@@ -8,6 +8,7 @@ import "../styles/main.css";
 import "../styles/prism.css";
 import "../styles/skeleton.css";
 import "../styles/nprogress.css";
+import "../styles/headings.css";
 
 NProgress.configure({ showSpinner: false });
 Router.events.on("routeChangeStart", () => NProgress.start());

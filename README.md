@@ -4,7 +4,7 @@ Personal portfolio/blog site
 
 # TODO
 
-- Anchor links within blog posts
+- Split header into 2 right/left chunks because it blocks links in posts
 - Social redirects [lokimckay.com/github](lokimckay.com/github)
 - Colour code blog posts based on tags
 - Filter blog posts by tag
@@ -23,3 +23,24 @@ Personal portfolio/blog site
 - https://github.com/saurabhnemade/react-twitter-embed
 - https://prismjs.com/#supported-languages
 - https://github.com/hashicorp/next-mdx-enhanced/issues/45
+
+# Docs
+
+## Adding icons through Icomoon
+
+1. Use selection.json generated from http://icomoon.io/app
+1. Add your desired icons, select from ready library or add custom svg's
+1. Once done click Generate Font
+1. Click Download
+1. Unzip package and grab your `selection.json`
+
+```jsx
+import iconSet from "somewhere/selection.json";
+import IcoMoon, { iconList } from "react-icomoon";
+```
+
+Then
+
+```jsx
+<IcoMoon iconSet={iconSet} color="#444" size={100} icon="shower" />
+```

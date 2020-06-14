@@ -1,6 +1,14 @@
 import { Table, THead, TBody, TRow, TData } from "./table";
+import { h1, h2, h3, h4, h5, h6 } from "./heading";
 
 const MDXComponents = {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p: props => <p style={{ marginTop: 0 }} {...props} />,
   table: Table,
   th: THead,
   tbody: TBody,
