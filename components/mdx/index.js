@@ -8,7 +8,6 @@ const MDXComponents = {
   h4,
   h5,
   h6,
-  p: props => <p style={{ marginTop: 0 }} {...props} />,
   table: Table,
   th: THead,
   tbody: TBody,

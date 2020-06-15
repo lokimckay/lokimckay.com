@@ -24,7 +24,7 @@ export default ({ items, renderItem }) => {
           key={index}
           variants={itemAnim}
           whileHover={{
-            opacity: 0.5,
+            opacity: 0.85,
             transition: { duration: 0.15 },
           }}
           whileTap={{ opacity: 1, transition: { duration: 0.15 } }}

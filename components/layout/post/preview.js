@@ -1,33 +1,22 @@
 import { imageEndpoint, codeFont } from "../../../config";
 import { resourcePathToUrl } from "../../../lib/url";
+import { getThemeFromTag } from "../../../lib/colourScheme";
 import Link from "next/link";
 
 export default ({ post }) => {
-  const overlays = {
-    black: {
-      color: "white",
-      backgroundColor: "rgba(0,0,0,0.9)",
-    },
-    green: {
-      color: "white",
-      backgroundColor: "#3A7D44",
-    },
-    yellow: {
-      backgroundColor: "#F6AE2D",
-    },
-    pink: {
-      backgroundColor: "#C60F7B",
-    },
-  };
+  const {
+    title,
+    date,
+    tags,
+    preview,
+    focalX = 0.5,
+    focalY = 0.5,
+    __resourcePath,
+  } = post;
 
-  const tagMappings = {
-    code: "black",
-    game: "green",
-    cgModelling: "yellow",
-    vfx: "pink",
-  };
+  const theme = getThemeFromTag(tags[0]);
 
-  const staticStyle = {
+  const style = {
     position: "relative",
     zIndex: 1,
     border: "2px solid #D6D6D6",
@@ -41,11 +30,8 @@ export default ({ post }) => {
     paddingTop: 32,
     paddingBottom: 32,
     opacity: 1,
-  };
-
-  const style = primaryTag => {
-    const overlay = overlays[tagMappings[primaryTag]] || {};
-    return { ...staticStyle, ...overlay };
+    backgroundColor: theme.backgroundColor,
+    color: theme.text,
   };
 
   const bgStyle = ({ preview, focalX, focalY }) => {
@@ -65,6 +51,7 @@ export default ({ post }) => {
     };
   };
   const titleStyle = {
+    color: theme.title,
     margin: 0,
   };
   const dateStyle = {
@@ -74,20 +61,11 @@ export default ({ post }) => {
     fontFamily: codeFont,
   };
 
-  const {
-    title,
-    date,
-    tags,
-    preview,
-    focalX = 0.5,
-    focalY = 0.5,
-    __resourcePath,
-  } = post;
   const route = resourcePathToUrl(__resourcePath);
 
   return (
     <Link href={`${route}`}>
-      <div style={style(tags[0])}>
+      <div style={style}>
         <span style={dateStyle}>{date}</span>
         <h1 style={titleStyle}>{title}</h1>
         <span style={tagStyle}>{tags.map(tag => `#${tag} `)}</span>

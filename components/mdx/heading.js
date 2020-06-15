@@ -6,7 +6,7 @@ const iconStyle = {
   color: "#CCCCCC",
 };
 
-const headingStyle = {};
+const headingStyle = { marginBottom: 0 };
 const headingClass = "mdxHeading";
 const headingIconClass = "mdxHeadingIcon";
 
