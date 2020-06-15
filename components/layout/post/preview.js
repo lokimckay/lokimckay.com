@@ -3,7 +3,31 @@ import { resourcePathToUrl } from "../../../lib/url";
 import Link from "next/link";
 
 export default ({ post }) => {
-  const style = {
+  const overlays = {
+    black: {
+      color: "white",
+      backgroundColor: "rgba(0,0,0,0.9)",
+    },
+    green: {
+      color: "white",
+      backgroundColor: "#3A7D44",
+    },
+    yellow: {
+      backgroundColor: "#F6AE2D",
+    },
+    pink: {
+      backgroundColor: "#C60F7B",
+    },
+  };
+
+  const tagMappings = {
+    code: "black",
+    game: "green",
+    cgModelling: "yellow",
+    vfx: "pink",
+  };
+
+  const staticStyle = {
     position: "relative",
     zIndex: 1,
     border: "2px solid #D6D6D6",
@@ -17,10 +41,13 @@ export default ({ post }) => {
     paddingTop: 32,
     paddingBottom: 32,
     opacity: 1,
-    // TODO: dark mode? 2 below
-    // color: "white",
-    // backgroundColor: "rgba(0,0,0,0.95)",
   };
+
+  const style = primaryTag => {
+    const overlay = overlays[tagMappings[primaryTag]] || {};
+    return { ...staticStyle, ...overlay };
+  };
+
   const bgStyle = ({ preview, focalX, focalY }) => {
     return {
       position: "absolute",
@@ -60,7 +87,7 @@ export default ({ post }) => {
 
   return (
     <Link href={`${route}`}>
-      <div style={style}>
+      <div style={style(tags[0])}>
         <span style={dateStyle}>{date}</span>
         <h1 style={titleStyle}>{title}</h1>
         <span style={tagStyle}>{tags.map(tag => `#${tag} `)}</span>

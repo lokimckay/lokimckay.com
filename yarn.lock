@@ -5373,7 +5373,7 @@ react-gist@^1.2.1:
   dependencies:
     prop-types "^15.6.0"
 
-react-icomoon@^2.1.3:
+react-icomoon@2.1.3:
   version "2.1.3"
   resolved "https://registry.yarnpkg.com/react-icomoon/-/react-icomoon-2.1.3.tgz#9dfe33c22ab5534b49d2a898b91a3838d33f491a"
   integrity sha512-kH0O4iEU3sqg/VxDSanGMkb2Z8KJhaVtaAu41gnAdV/K4lyWoPgVr98TugBFnD4PJNSLR0PGXumnke7bEvtngQ==
