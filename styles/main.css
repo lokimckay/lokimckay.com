@@ -45,7 +45,7 @@ li:before {
   margin-left: -1em; /* Also needed for space (tweak if needed) */
   content: "-";
   padding-right: 8px;
-  color: blue;
+  color: #0074de;
 }
 
 /* horizontal padding */
