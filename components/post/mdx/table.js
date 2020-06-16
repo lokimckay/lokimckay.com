@@ -1,6 +1,11 @@
 export const Table = props => (
   <table
-    style={{ marginBottom: 32, width: "100%", borderCollapse: "collapse" }}
+    style={{
+      marginTop: 16,
+      marginBottom: 32,
+      width: "100%",
+      borderCollapse: "collapse",
+    }}
     {...props}
   />
 );

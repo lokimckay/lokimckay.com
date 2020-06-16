@@ -1,6 +1,7 @@
-import { imageEndpoint, codeFont } from "../../../config";
-import { resourcePathToUrl } from "../../../lib/url";
-import { getThemeFromTag } from "../../../lib/colourScheme";
+import { imageEndpoint, codeFont } from "../../config";
+import { resourcePathToUrl } from "../../lib/url";
+import { getThemeFromTag } from "../../lib/colourScheme";
+import Meta from "./meta";
 import Link from "next/link";
 
 export default ({ post }) => {
@@ -50,25 +51,13 @@ export default ({ post }) => {
       filter: "blur(2px)",
     };
   };
-  const titleStyle = {
-    color: theme.title,
-    margin: 0,
-  };
-  const dateStyle = {
-    fontFamily: codeFont,
-  };
-  const tagStyle = {
-    fontFamily: codeFont,
-  };
 
   const route = resourcePathToUrl(__resourcePath);
 
   return (
     <Link href={`${route}`}>
       <div style={style}>
-        <span style={dateStyle}>{date}</span>
-        <h1 style={titleStyle}>{title}</h1>
-        <span style={tagStyle}>{tags.map(tag => `#${tag} `)}</span>
+        <Meta title={title} date={date} tags={tags.slice(0, 1)} theme={theme} />
         <div style={bgStyle({ preview, focalX, focalY })} />
       </div>
     </Link>

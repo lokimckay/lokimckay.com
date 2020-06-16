@@ -2,7 +2,7 @@ const mdxPrism = require("mdx-prism");
 const withMdxEnhanced = require("next-mdx-enhanced");
 
 module.exports = withMdxEnhanced({
-  layoutPath: "components/layout/post",
+  layoutPath: "components/post",
   defaultLayout: true,
   fileExtensions: ["mdx"],
   remarkPlugins: [],
