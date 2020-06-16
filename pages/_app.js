@@ -1,6 +1,6 @@
 import Layout from "../components/layout";
 import { MDXProvider } from "@mdx-js/react";
-import MDXComponents from "../components/mdx";
+import MDXComponents from "../components/post/mdx";
 import Router from "next/router";
 import NProgress from "nprogress";
 import Head from "next/head";

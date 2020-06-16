@@ -1,7 +1,7 @@
 import AnimList from "../../components/animList";
 import { frontMatter as posts } from "./**/*.mdx";
 import { panelBgCol } from "../../config";
-import PostPreview from "../../components/layout/post/preview";
+import PostPreview from "../../components/post/preview";
 import PageEnd from "../../components/pageEnd";
 
 const byDate = (a, b) => {

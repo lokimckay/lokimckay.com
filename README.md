@@ -4,9 +4,10 @@ Personal portfolio/blog site
 
 # TODO
 
+- 3d model viewer posts
+- Image skeletons
 - Split header into 2 right/left chunks because it blocks links in posts
 - Social redirects [lokimckay.com/github](lokimckay.com/github)
-- Colour code blog posts based on tags
 - Filter blog posts by tag
 - Fuzzy search blog posts
 - [Add ability to add social media links, tweets etc](https://github.com/saurabhnemade/react-twitter-embed)

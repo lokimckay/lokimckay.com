@@ -25,7 +25,7 @@ export default ({ id, width, height, autoplay, loop, mute, style }) => {
         src={`https://www.youtube.com/embed/${id}?autoplay=${get(
           autoplay
         )}${loopString}&mute=${get(mute)}&color=white&modestbranding=1`}
-        frameborder="0"
+        frameBorder="0"
         allowFullScreen
       />
     </div>

@@ -8,6 +8,7 @@ export const imageEndpoint =
 export const codeFont = "Inconsolata, monospace";
 export const buttonFont = "Inconsolata, monospace";
 export const logoFont = "Roboto, sans-serif";
+export const headingFont = "Montserrat, sans-serif";
 
 //Stealth
 export const hideBg = false;
