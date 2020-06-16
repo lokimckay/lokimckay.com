@@ -6,6 +6,10 @@ Personal portfolio/blog site
 
 - 3d model viewer posts
 - Image skeletons
+<<<<<<< HEAD
+=======
+- Split header into 2 right/left chunks because it blocks links in posts
+>>>>>>> 049e324... update post data and shuffle components
 - Social redirects [lokimckay.com/github](lokimckay.com/github)
 - Filter blog posts by tag
 - Fuzzy search blog posts

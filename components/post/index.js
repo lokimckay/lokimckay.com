@@ -1,9 +1,9 @@
+import { postRouteToDbSlug } from "../../lib/translate";
 import { panelBgCol } from "../../config";
 import { useRouter } from "next/router";
+import ViewCount from "./viewCount";
 import PageEnd from "../pageEnd";
 import Meta from "./meta";
-import ViewCount from "./viewCount";
-import { postRouteToDbSlug } from "../../lib/translate";
 
 export default frontMatter => {
   return ({ children }) => {
@@ -36,6 +36,7 @@ export default frontMatter => {
 
     return (
       <div className="hPad" style={wrapperStyle}>
+<<<<<<< HEAD:components/post/index.js
         <Meta
           title={title}
           date={date}
@@ -45,6 +46,9 @@ export default frontMatter => {
             <ViewCount id={slug} increment={true} style={{ marginLeft: 8 }} />
           }
         />
+=======
+        <Meta title={title} date={date} tags={tags} subtitle={subtitle} />
+>>>>>>> 049e324... update post data and shuffle components:components/layout/post/index.js
         <hr style={{ marginRight: 64, marginBottom: 32 }} />
         {children}
         <div style={bgStyle} />
