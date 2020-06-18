@@ -12,6 +12,7 @@ export default () => {
     alignItems: "center",
     paddingTop: 8,
     paddingBottom: 8,
+    pointerEvents: "none",
     zIndex: 1,
   };
 

@@ -4,6 +4,7 @@ import { navLinks } from "../../config";
 export default ({ borders = true }) => {
   const navItemStyle = ({ first, last }) => {
     return {
+      pointerEvents: "auto",
       paddingLeft: first ? 0 : 4,
       paddingRight: last ? 0 : 4,
     };
