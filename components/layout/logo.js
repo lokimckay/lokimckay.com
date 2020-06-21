@@ -7,6 +7,7 @@ export default () => {
     color: "#000",
     fontSize: 32,
     fontFamily: logoFont,
+    pointerEvents: "auto",
     cursor: "pointer",
   };
 
