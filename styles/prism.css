@@ -32,6 +32,12 @@ pre {
   -webkit-overflow-scrolling: touch;
 }
 
+/* Highlighted lines */
+.mdx-marker {
+  background: #303336;
+}
+
+/* Tokens */
 .token.comment,
 .token.prolog,
 .token.doctype,
