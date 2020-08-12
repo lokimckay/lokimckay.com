@@ -37,10 +37,10 @@ ul {
   padding: 0;
   margin: 0;
 }
-li {
+ul li {
   padding-left: 16px;
 }
-li:before {
+ul li:before {
   width: 1em; /* Also needed for space (tweak if needed) */
   margin-left: -1em; /* Also needed for space (tweak if needed) */
   content: "-";
