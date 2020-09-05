@@ -7,7 +7,6 @@ const incrementViews = async (req, res) => {
     dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,
     tracesSampleRate: process.env.SENTRY_SAMPLE_RATE || 0,
   });
-
   const transaction = Sentry.startTransaction({
     op: "increment-views",
     name: "increment-views",
@@ -31,8 +30,8 @@ const incrementViews = async (req, res) => {
     return res.status(200).json({
       total: snapshot.val(),
     });
-  } catch (e) {
-    Sentry.captureException(e);
+  } catch (error) {
+    Sentry.captureException(error);
   } finally {
     transaction.finish();
   }
