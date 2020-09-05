@@ -37,6 +37,10 @@ hr {
   color: rgba(0, 0, 0, 0.5);
 }
 
+.views {
+  opacity: 0.5;
+}
+
 /* Lists */
 ul {
   list-style: none;
