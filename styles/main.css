@@ -31,6 +31,12 @@ hr {
   border: "1px solid black";
 }
 
+.quote {
+  font-family: Helvetica, sans-serif;
+  font-style: italic;
+  color: rgba(0, 0, 0, 0.5);
+}
+
 /* Lists */
 ul {
   list-style: none;
