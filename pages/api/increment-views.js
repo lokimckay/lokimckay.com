@@ -1,4 +1,4 @@
-import db from "../../lib/db-admin";
+import initDb from "../../lib/db-admin";
 import * as Sentry from "@sentry/node";
 import * as Tracing from "@sentry/tracing";
 
@@ -13,6 +13,8 @@ const incrementViews = async (req, res) => {
   });
 
   try {
+    const db = initDb();
+
     if (!req.query.id) {
       return res.status(400).json({
         error: 'Missing "id" query parameter',
