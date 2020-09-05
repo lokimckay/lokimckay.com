@@ -1,0 +1,130 @@
+---
+title: "Ninja Dev Setup 2020 🐱‍👤"
+date: "2020/09/05"
+unsplash: "n--CMLApjfI"
+tags: ["code"]
+---
+
+<div style={{ height: 200, backgroundColor: "#F0F5F9" }}>
+  <img
+    src="https://source.unsplash.com/XJXWbfSo2f0/800x200"
+    style={{ width: "100%", height: 200 }}
+  />
+</div>
+
+In this post I walk through my personal developer setup and the tools I use to increase productivity.
+
+You'll get the most value out of this post if you are a javascript developer working with Windows 10, but most info in this post translates to macOS and Linux, as well as other languages.
+
+## 📂 Directory Structure
+
+Keep all developer related work under `C:/dev/` and then pin the subfolders to Quick Access.
+
+```c
+C:/dev/
+  │
+  ├── apps/         // installed programs go here
+  │
+  ├── installers/   // downloaded installer files, so you can uninstall later
+  │
+  ├── repos/        // git repositories
+  │
+  └── shortcuts/    // shortcuts to deep paths that you frequently visit
+                    // E.g. C:\WINDOWS\System32\drivers\etc\hosts
+```
+
+## 🔗 Quick Access
+
+Make the windows file explorer Quick Access more useful by removing the cruft
+
+1. Create the above directory structure
+1. On Windows 10 go to `File` -> `Change folder and search options` in an explorer window
+1. Under `Privacy`, untick `Show recently used files in Quick Access`
+1. Unpin any unwanted items from Quick Access
+1. Pin the above folders from `C:/dev/` to Quick Access by right clicking them
+
+## 💾 Git
+
+https://git-scm.com/downloads
+
+Industry standard source code management. Never lose your work, and never make an un-correctable mistake in your source code.
+
+Download it to `C:/dev/installers`, and install it to `C:/dev/apps`
+
+## ✈️ Terminal
+
+<div style={{ marginTop: 8, width: "100%", height: 200, overflow: "hidden" }}>
+  <img
+    src="https://cmder.net/img/main.png"
+    style={{ width: "100%", transform: "translate(0, -25%)" }}
+  />
+</div>
+
+Navigating a GUI is slow, and when working with remote deployments in many cases, a GUI is not available.  
+Every developer should be familiar with the basics of using a terminal.
+
+Don’t use the subpar terminal that comes bundled with Git. For a clean and satisfying experience, I recommend installing [Cmder Mini](https://cmder.net/) and then integrating Cmder with [Windows Terminal](https://github.com/microsoft/terminal) or [Hyper](https://hyper.is/) depending on your OS.
+
+- [Windows Terminal (Win 10)](https://github.com/microsoft/terminal)
+- [Hyper (any OS)](https://hyper.is/)
+
+Cmder's guide for [intergrating with Windows Terminal](https://github.com/cmderdev/cmder/wiki/Seamless-Windows-Terminal-Integration)  
+Cmder's guide for [intergrating with Hyper](https://github.com/cmderdev/cmder/wiki/Seamless-Hyper-integration)  
+Cmder's [wiki](https://github.com/cmderdev/cmder/wiki)
+
+## 💻 Editor
+
+You want your code editor to start quckly and be as responsive as possible, but still provide essential features like syntax highlighting.
+
+I recommend these 2 editors:
+
+- [Atom](https://atom.io/) (by Github)
+- [Visual Studio Code](https://code.visualstudio.com/) (by Microsoft)
+
+Currently I use VS Code and recommend installing these extensions:
+
+- [Git Lens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
+- [Path Autocomplete](https://marketplace.visualstudio.com/items?itemName=ionutvmi.path-autocomplete)
+- [Formatting Toggle](https://marketplace.visualstudio.com/items?itemName=tombonnike.vscode-status-bar-format-toggle)
+- [Atom Keymap](https://marketplace.visualstudio.com/items?itemName=ms-vscode.atom-keybindings) _(If you've come from Atom like me)_
+
+## 🐢 Node version manager (NVM)
+
+[Windows](https://github.com/coreybutler/nvm-windows) | [macOS/Linux](https://github.com/nvm-sh/nvm)
+
+When working with Node, you might occasionally want to change versions in order to debug issues or get certain features.
+It's a pain to uninstall and reinstall node each time you want to do this.
+
+NVM allows you to easily switch node versions by entering `nvm use <desired version>` in your terminal
+
+## 👁️ Instant Eyedropper
+
+http://instant-eyedropper.com/
+
+Allows you to get the hex code of any color on your screen using `Alt` + <code>` (backtick)</code>
+
+## 🥽 PowerToys
+
+https://github.com/microsoft/PowerToys
+
+> Microsoft PowerToys is a set of utilities for power users to tune and streamline their Windows experience for greater productivity.
+
+Sometimes I find that using `Win` + `Arrow Key` to position my windows is not sufficient.  
+The _Fancy Zones_ utility allows you to snap windows in a variety of configurations with a nice gutter simply by holding `Shift` while dragging a window
+
+## 📖 Notion
+
+https://www.notion.so/
+
+I've tried many productivity apps, and [Notion](https://www.notion.so/) covers many of their use cases.  
+It's easy to create documentation, todo lists, journal entries etc. and it's free for personal use.
+
+<br />
+<hr />
+<br />
+
+Thanks for reading 😃  
+I hope you find some value in these tools
+
+[❔ Feedback](/contact)  
+[☝️ Back to top](#top)

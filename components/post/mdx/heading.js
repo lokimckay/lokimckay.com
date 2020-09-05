@@ -11,6 +11,7 @@ const headingClass = "mdxHeading";
 const headingIconClass = "mdxHeadingIcon";
 
 const Heading = ({ level, text }) => {
+  if (!text) return null;
   const headings = ({ childElement, anchorElement, icon }) => {
     return {
       h1: (

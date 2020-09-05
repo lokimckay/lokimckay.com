@@ -2,14 +2,12 @@
 title: "React Component Tips"
 date: "2020/08/11"
 tags: ["code"]
-preview: "2c8a75297f40abb4631725454f8b9a6298fed10e-700x700.png"
+unsplash: "c8h0n7fSTqs"
 ---
 
 In this post I share some tips for how you can refactor your react components to be readable and [declarative] 💣
 
 # Table of Contents
-
-<br />
 
 1. [Remove extra divs]
 1. [Remove unnecessary closing tags]
@@ -20,8 +18,6 @@ In this post I share some tips for how you can refactor your react components to
 1. [Never use "var"]
 1. [Use "const" instead of "let"]
 1. [Use the ternary operator]
-
-<br />
 
 ## #1. Remove extra divs
 
@@ -55,8 +51,6 @@ const Component = () => {
 };
 ```
 
-<br />
-
 ## #2. Remove unnecessary closing tags
 
 If an element does not have any children, a named closing tag is not required  
@@ -78,8 +72,6 @@ const Component = () => {
 };
 ```
 
-<br />
-
 ## #3. Use template literals instead of concatenation
 
 Avoid concatenating strings by using [template literals] instead
@@ -99,8 +91,6 @@ const Component = ({ classes }) => {
   return <div className={`bg-white ${classes}`} />;
 };
 ```
-
-<br />
 
 ## #4. Destructure props
 
@@ -152,8 +142,6 @@ const Component = props => {
 };
 ```
 
-<br />
-
 ## #5. Set defaults while destructuring
 
 Avoid using imperative logic to redefine properties  
@@ -180,8 +168,6 @@ const Component = ({ propertyA = "default" }) => {
 ```
 
 Note that `null`, `false`, and `""` (empty string) would all be valid inputs for `propertyA` and would bypass the default. See [Avoid verbose nullchecks] for how to solve this
-
-<br />
 
 ## #6. Avoid verbose nullchecks
 
@@ -212,15 +198,11 @@ const Component = ({ propertyA }) => {
 };
 ```
 
-<br />
-
 ## #7. Never use "var"
 
 From [stackoverflow](https://stackoverflow.com/a/39682390):
 
 > _var is on ES6 for legacy reasons. In theory, the let statement is better since it behaves more predictably on block scopes, but it won't work with more outdated interpreters. So, if you're coding with only ES6 in mind, go for let._
-
-<br />
 
 ## #8. Use "const" instead of "let"
 
@@ -254,8 +236,6 @@ const Component = ({ size }) => {
   return <div className={className} />;
 };
 ```
-
-<br />
 
 ## #9. Use the ternary operator
 
@@ -305,7 +285,7 @@ const Component = ({ loading, data, error }) => {
 Thanks for reading 😃
 
 [❔ Feedback](/contact)  
-[☝️ Back to top](#table-of-contents)
+[☝️ Back to top](#top)
 
 [remove extra divs]: #1-remove-extra-divs
 [remove unnecessary closing tags]: #2-remove-unnecessary-closing-tags

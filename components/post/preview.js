@@ -10,6 +10,7 @@ export default ({ post }) => {
     date,
     tags,
     preview,
+    unsplash,
     focalX = 0.5,
     focalY = 0.5,
     __resourcePath,
@@ -35,7 +36,10 @@ export default ({ post }) => {
     color: theme.text,
   };
 
-  const bgStyle = ({ preview, focalX, focalY }) => {
+  const bgStyle = ({ preview, unsplash, focalX, focalY }) => {
+    const backgroundImage = preview
+      ? `url("${imageEndpoint}${preview}?w=200&h=150&fit=crop&crop=focalpoint&fp-x=${focalX}&fp-y=${focalY}")`
+      : `url("https://source.unsplash.com/${unsplash}/200x150")`;
     return {
       position: "absolute",
       opacity: 0.2,
@@ -47,7 +51,7 @@ export default ({ post }) => {
       backgroundPosition: "center",
       backgroundSize: "cover",
       backgroundRepeat: "no-repeat",
-      backgroundImage: `url("${imageEndpoint}${preview}?w=200&h=150&fit=crop&crop=focalpoint&fp-x=${focalX}&fp-y=${focalY}")`,
+      backgroundImage,
       filter: "blur(2px)",
     };
   };
@@ -58,7 +62,7 @@ export default ({ post }) => {
     <Link href={`${route}`}>
       <div style={style}>
         <Meta title={title} date={date} tags={tags.slice(0, 1)} theme={theme} />
-        <div style={bgStyle({ preview, focalX, focalY })} />
+        <div style={bgStyle({ preview, unsplash, focalX, focalY })} />
       </div>
     </Link>
   );

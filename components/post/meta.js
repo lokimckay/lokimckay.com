@@ -28,7 +28,10 @@ export default ({
   return (
     <>
       <span style={dateStyle}>{date}</span>
-      <h1 style={titleStyle}>{title}</h1>
+      <div>
+        <a name="top" id="top" />
+        <h1 style={titleStyle}>{title}</h1>
+      </div>
       {subtitle && <subtitle style={subtitleStyle}>{subtitle}</subtitle>}
       <TagList tags={tags} theme={theme} />
     </>
