@@ -36,7 +36,6 @@ export default frontMatter => {
 
     return (
       <div className="hPad" style={wrapperStyle}>
-<<<<<<< HEAD:components/post/index.js
         <Meta
           title={title}
           date={date}
@@ -46,9 +45,6 @@ export default frontMatter => {
             <ViewCount id={slug} increment={true} style={{ marginLeft: 8 }} />
           }
         />
-=======
-        <Meta title={title} date={date} tags={tags} subtitle={subtitle} />
->>>>>>> 049e324... update post data and shuffle components:components/layout/post/index.js
         <hr style={{ marginRight: 64, marginBottom: 32 }} />
         {children}
         <div style={bgStyle} />
