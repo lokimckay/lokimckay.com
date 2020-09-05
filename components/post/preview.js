@@ -1,6 +1,7 @@
-import { imageEndpoint, codeFont } from "../../config";
-import { resourcePathToUrl } from "../../lib/url";
+import { imageEndpoint } from "../../config";
+import { resourcePathToUrl, postRouteToDbSlug } from "../../lib/translate";
 import { getThemeFromTag } from "../../lib/colourScheme";
+import ViewCount from "./viewCount";
 import Meta from "./meta";
 import Link from "next/link";
 
@@ -57,11 +58,22 @@ export default ({ post }) => {
   };
 
   const route = resourcePathToUrl(__resourcePath);
+  const slug = postRouteToDbSlug(route);
 
   return (
     <Link href={`${route}`}>
       <div style={style}>
-        <Meta title={title} date={date} tags={tags.slice(0, 1)} theme={theme} />
+        <Meta
+          title={title}
+          slug={slug}
+          date={date}
+          tags={tags.slice(0, 1)}
+          theme={theme}
+        />
+        <ViewCount
+          id={slug}
+          style={{ position: "absolute", right: 48, top: 32 }}
+        />
         <div style={bgStyle({ preview, unsplash, focalX, focalY })} />
       </div>
     </Link>

@@ -18,5 +18,9 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# dotenv
+.env
+.env.local
+
 # image
 Thumbs.db

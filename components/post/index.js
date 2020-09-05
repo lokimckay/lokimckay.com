@@ -1,9 +1,14 @@
 import { panelBgCol } from "../../config";
+import { useRouter } from "next/router";
 import PageEnd from "../pageEnd";
 import Meta from "./meta";
+import ViewCount from "./viewCount";
+import { postRouteToDbSlug } from "../../lib/translate";
 
 export default frontMatter => {
   return ({ children }) => {
+    const router = useRouter();
+    const slug = postRouteToDbSlug(router.pathname);
     const { title, date, tags, subtitle, paddingBottom = 64 } = frontMatter;
 
     const style = {
@@ -31,7 +36,15 @@ export default frontMatter => {
 
     return (
       <div className="hPad" style={wrapperStyle}>
-        <Meta title={title} date={date} tags={tags} subtitle={subtitle} />
+        <Meta
+          title={title}
+          date={date}
+          tags={tags}
+          subtitle={subtitle}
+          viewCount={
+            <ViewCount id={slug} increment={true} style={{ marginLeft: 8 }} />
+          }
+        />
         <hr style={{ marginRight: 64, marginBottom: 32 }} />
         {children}
         <div style={bgStyle} />

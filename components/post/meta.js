@@ -7,6 +7,7 @@ export default ({
   tags,
   subtitle,
   theme = { title: "black", tags: "black", date: "black", subtitle: "black" },
+  viewCount,
 }) => {
   const titleStyle = {
     fontFamily: headingFont,
@@ -28,6 +29,7 @@ export default ({
   return (
     <>
       <span style={dateStyle}>{date}</span>
+      {viewCount}
       <div>
         <a name="top" id="top" />
         <h1 style={titleStyle}>{title}</h1>

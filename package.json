@@ -15,6 +15,9 @@
   },
   "dependencies": {
     "babel-plugin-import-glob-array": "^0.2.0",
+    "comma-number": "^2.0.1",
+    "firebase": "^7.19.1",
+    "firebase-admin": "^9.1.1",
     "framer-motion": "^1.11.0",
     "mdx-prism": "^0.3.1",
     "next": "^9.4.4",
