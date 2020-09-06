@@ -29,3 +29,5 @@ vercel.json
 # image
 Thumbs.db
 
+# ide
+.vscode
