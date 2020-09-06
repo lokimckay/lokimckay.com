@@ -14,9 +14,6 @@
     "clean": "rimraf .next/ .mdx-data/"
   },
   "dependencies": {
-    "@sentry/node": "^5.22.3",
-    "@sentry/tracing": "^5.22.3",
-    "@sentry/webpack-plugin": "^1.12.1",
     "babel-plugin-import-glob-array": "^0.2.0",
     "comma-number": "^2.0.1",
     "firebase": "^7.19.1",
