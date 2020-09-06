@@ -22,5 +22,10 @@ yarn-error.log*
 .env
 .env.local
 
+# vercel
+.vercel
+vercel.json
+
 # image
 Thumbs.db
+

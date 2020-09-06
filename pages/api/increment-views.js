@@ -1,4 +1,5 @@
 import initDb from "../../lib/db-admin";
+import admin from "firebase-admin";
 import * as Sentry from "@sentry/node";
 import * as Tracing from "@sentry/tracing";
 
@@ -13,7 +14,8 @@ const incrementViews = async (req, res) => {
   });
 
   try {
-    const db = initDb();
+    initDb();
+    const db = admin.database();
 
     if (!req.query.id) {
       return res.status(400).json({
