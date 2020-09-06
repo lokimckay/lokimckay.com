@@ -26,6 +26,10 @@ export default () => {
     marginBottom: 16,
   };
 
+  const pointStyle = {
+    margin: 0,
+  };
+
   return (
     <>
       <h1 style={headingStyle}>Lachlan McKay</h1>
@@ -35,9 +39,13 @@ export default () => {
         hood
       </p>
       <ul style={pointsStyle}>
-        <li>4 years professional experience</li>
-        <li>Financial services, academic and creative industries</li>
-        <li>Strong passion for visual & creative digital media</li>
+        <li style={pointStyle}>4 years professional experience</li>
+        <li style={pointStyle}>
+          Financial services, academic and creative industries
+        </li>
+        <li style={pointStyle}>
+          Strong passion for visual & creative digital media
+        </li>
       </ul>
       <Nav borders={false} />
     </>
