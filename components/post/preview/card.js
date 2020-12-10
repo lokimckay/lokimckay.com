@@ -1,22 +1,19 @@
-import { imageEndpoint } from "../../config";
-import { resourcePathToUrl, postRouteToDbSlug } from "../../lib/translate";
-import { getThemeFromTag } from "../../lib/colourScheme";
-import ViewCount from "./viewCount";
-import Meta from "./meta";
-import Link from "next/link";
+import { imageEndpoint } from "../../../config";
+import { resourcePathToUrl, postRouteToDbSlug } from "../../../lib/translate";
+import { getThemeFromTag } from "../../../lib/colourScheme";
+import ViewCount from "../viewCount";
+import Meta from "../meta";
 
-export default ({ post }) => {
-  const {
-    title,
-    date,
-    tags,
-    preview,
-    unsplash,
-    focalX = 0.5,
-    focalY = 0.5,
-    __resourcePath,
-  } = post;
-
+export default ({
+  title,
+  date,
+  tags,
+  preview,
+  unsplash,
+  focalX = 0.5,
+  focalY = 0.5,
+  __resourcePath,
+}) => {
   const theme = getThemeFromTag(tags[0]);
 
   const style = {
@@ -61,21 +58,19 @@ export default ({ post }) => {
   const slug = postRouteToDbSlug(route);
 
   return (
-    <Link href={`${route}`}>
-      <div style={style}>
-        <Meta
-          title={title}
-          slug={slug}
-          date={date}
-          tags={tags.slice(0, 1)}
-          theme={theme}
-        />
-        <ViewCount
-          id={slug}
-          style={{ position: "absolute", right: 48, top: 32 }}
-        />
-        <div style={bgStyle({ preview, unsplash, focalX, focalY })} />
-      </div>
-    </Link>
+    <div style={style}>
+      <Meta
+        title={title}
+        slug={slug}
+        date={date}
+        tags={tags.slice(0, 1)}
+        theme={theme}
+      />
+      <ViewCount
+        id={slug}
+        style={{ position: "absolute", right: 48, top: 32 }}
+      />
+      <div style={bgStyle({ preview, unsplash, focalX, focalY })} />
+    </div>
   );
 };

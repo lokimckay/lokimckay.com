@@ -13,7 +13,7 @@ export const headingFont = "Montserrat, sans-serif";
 //Stealth
 export const hideBg = false;
 export const hideLogo = false;
-export const showEvents = false;
+export const showEvents = true;
 
 //Visual
 export const panelBgCol = "rgba(255, 255, 255, 0.25)";

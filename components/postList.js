@@ -3,7 +3,7 @@ import PostPreview from "./post/preview";
 import AnimList from "./animList";
 import PageEnd from "./pageEnd";
 import events from "../lib/events";
-import Event from "./event";
+import TextPreview from "./post/preview/text";
 
 const byDate = (a, b) => {
   return new Date(b.date) - new Date(a.date);
@@ -20,15 +20,7 @@ export default ({ posts }) => {
     .map(post => {
       return { ...post, type: "post" };
     })
-    .concat(
-      showEvents
-        ? events
-            .filter(event => !event.hide)
-            .map(event => {
-              return { ...event, type: "event" };
-            })
-        : []
-    )
+    .concat(showEvents ? events.filter(event => !event.hide) : [])
     .sort(byDate);
 
   return (
@@ -38,9 +30,9 @@ export default ({ posts }) => {
         items={items}
         renderItem={(item, index) => {
           return item.type === "post" ? (
-            <PostPreview key={`post-${index}`} post={item} />
+            <PostPreview key={`post-${index}`} {...item} />
           ) : (
-            <Event event={item} />
+            <TextPreview key={`event-${index}`} {...item} />
           );
         }}
       />
