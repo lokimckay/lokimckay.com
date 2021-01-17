@@ -25,7 +25,7 @@ export default ({ posts }) => {
 
   return (
     <div className="hPad" style={containerStyle}>
-      <p>A timeline of my digital projects and online presence</p>
+      <p>A timeline of my career, projects, life events and highlights</p>
       <AnimList
         items={items}
         renderItem={(item, index) => {
