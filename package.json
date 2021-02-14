@@ -20,7 +20,7 @@
     "firebase-admin": "^9.1.1",
     "framer-motion": "^1.11.0",
     "mdx-prism": "^0.3.1",
-    "next": "^9.4.4",
+    "next": "^10.0.6",
     "next-mdx-enhanced": "3.0.0",
     "nprogress": "^0.2.0",
     "react": "^16.12.0",
