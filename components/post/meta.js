@@ -1,7 +1,7 @@
 import { codeFont, headingFont, logoFont } from "../../config";
 import TagList from "./tagList";
 
-export default ({
+const Meta = ({
   date,
   title,
   tags,
@@ -39,3 +39,5 @@ export default ({
     </>
   );
 };
+
+export default Meta;

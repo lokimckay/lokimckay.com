@@ -1,7 +1,7 @@
 import { codeFont } from "../config";
 import Nav from "./layout/nav";
 
-export default () => {
+const HomeInfo = () => {
   const headingStyle = {
     margin: 0,
     fontSize: 32,
@@ -51,3 +51,5 @@ export default () => {
     </>
   );
 };
+
+export default HomeInfo;
