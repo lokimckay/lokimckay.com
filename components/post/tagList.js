@@ -1,6 +1,7 @@
 import { codeFont } from "../../config";
 
 const TagList = ({ tags, style }) => {
+  if (!tags) return null;
   const tagStyle = {
     fontFamily: codeFont,
     ...style,
