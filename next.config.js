@@ -1,5 +1,6 @@
 const mdxPrism = require("mdx-prism");
 const withMdxEnhanced = require("next-mdx-enhanced");
+const redirects = require("./lib/redirects");
 
 module.exports = withMdxEnhanced({
   layoutPath: "components/post",
@@ -11,4 +12,8 @@ module.exports = withMdxEnhanced({
     process: (mdxContent, frontMatter) => {},
     phase: "prebuild|loader|both",
   },
-})(/* Regular next config */);
+})({
+  redirects: async () => {
+    return redirects;
+  },
+});
