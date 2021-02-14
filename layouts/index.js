@@ -4,11 +4,19 @@ import { postRouteToDbSlug } from "../lib/translate";
 import ViewCount from "../components/post/viewCount";
 import PageEnd from "../components/pageEnd";
 import Meta from "../components/post/meta";
+import Head from "next/head";
 
 const Index = ({ frontMatter, children }) => {
   const router = useRouter();
   const slug = postRouteToDbSlug(router.pathname);
-  const { title, date, tags, subtitle, paddingBottom = 64 } = frontMatter;
+  const {
+    title,
+    date,
+    tags,
+    subtitle,
+    paddingBottom = 64,
+    unlisted,
+  } = frontMatter;
 
   const style = {
     backgroundColor: panelBgCol,
@@ -34,21 +42,28 @@ const Index = ({ frontMatter, children }) => {
   };
 
   return (
-    <div className="hPad" style={wrapperStyle}>
-      <Meta
-        title={title}
-        date={date}
-        tags={tags}
-        subtitle={subtitle}
-        viewCount={
-          <ViewCount id={slug} increment={true} style={{ marginLeft: 8 }} />
-        }
-      />
-      <hr style={{ marginRight: 64, marginBottom: 32 }} />
-      {children}
-      <div style={bgStyle} />
-      <PageEnd />
-    </div>
+    <>
+      {unlisted && (
+        <Head>
+          <meta name="robots" content="noindex,nofollow" />
+        </Head>
+      )}
+      <div className="hPad" style={wrapperStyle}>
+        <Meta
+          title={title}
+          date={date}
+          tags={tags}
+          subtitle={subtitle}
+          viewCount={
+            <ViewCount id={slug} increment={true} style={{ marginLeft: 8 }} />
+          }
+        />
+        <hr style={{ marginRight: 64, marginBottom: 32 }} />
+        {children}
+        <div style={bgStyle} />
+        <PageEnd />
+      </div>
+    </>
   );
 };
 
