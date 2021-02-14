@@ -31,7 +31,6 @@ const Meta = ({
       <span style={dateStyle}>{date}</span>
       {viewCount}
       <div>
-        <a name="top" id="top" />
         <h1 style={titleStyle}>{title}</h1>
       </div>
       {subtitle && <subtitle style={subtitleStyle}>{subtitle}</subtitle>}
