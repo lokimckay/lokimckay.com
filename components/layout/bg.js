@@ -1,4 +1,4 @@
-export default () => {
+const Bg = () => {
   const style = {
     position: "fixed",
     backgroundPosition: "center",
@@ -15,3 +15,5 @@ export default () => {
 
   return <div style={style} />;
 };
+
+export default Bg;

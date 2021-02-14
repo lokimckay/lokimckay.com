@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-export default ({ items, renderItem }) => {
+const AnimList = ({ items, renderItem }) => {
   const listAnim = {
     hidden: { opacity: 0, x: -10 },
     show: {
@@ -35,3 +35,5 @@ export default ({ items, renderItem }) => {
     </motion.div>
   );
 };
+
+export default AnimList;

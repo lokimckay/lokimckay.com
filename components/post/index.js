@@ -5,7 +5,7 @@ import ViewCount from "./viewCount";
 import PageEnd from "../pageEnd";
 import Meta from "./meta";
 
-export default frontMatter => {
+const Index = frontMatter => {
   return ({ children }) => {
     const router = useRouter();
     const slug = postRouteToDbSlug(router.pathname);
@@ -53,3 +53,5 @@ export default frontMatter => {
     );
   };
 };
+
+export default Index;

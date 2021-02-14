@@ -1,4 +1,4 @@
-export default ({ children }) => {
+const SplashBox = ({ children }) => {
   const style = {
     position: "absolute",
     transform: "translate(-50%, -50%)",
@@ -11,3 +11,5 @@ export default ({ children }) => {
 
   return <div style={style}>{children}</div>;
 };
+
+export default SplashBox;

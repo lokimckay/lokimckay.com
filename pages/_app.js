@@ -15,7 +15,7 @@ Router.events.on("routeChangeStart", () => NProgress.start());
 Router.events.on("routeChangeComplete", () => NProgress.done());
 Router.events.on("routeChangeError", () => NProgress.done());
 
-export default ({ Component, pageProps }) => (
+const App = ({ Component, pageProps }) => (
   <MDXProvider components={MDXComponents}>
     <Head>
       <title>Lachlan McKay</title>
@@ -25,3 +25,5 @@ export default ({ Component, pageProps }) => (
     </Layout>
   </MDXProvider>
 );
+
+export default App;

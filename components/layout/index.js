@@ -2,7 +2,7 @@ import { hideBg } from "../../config";
 import Header from "./header";
 import Background from "./bg";
 
-export default ({ children }) => {
+const Index = ({ children }) => {
   const wrapperStyle = {
     minWidth: 300,
     paddingLeft: 16,
@@ -16,3 +16,5 @@ export default ({ children }) => {
     </div>
   );
 };
+
+export default Index;

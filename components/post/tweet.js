@@ -1,5 +1,7 @@
 import { TwitterTweetEmbed } from "react-twitter-embed";
 
-export default ({ id }) => {
+const Tweet = ({ id }) => {
   return <TwitterTweetEmbed tweetId={id} />;
 };
+
+export default Tweet;

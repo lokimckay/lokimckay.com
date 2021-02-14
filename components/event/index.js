@@ -16,6 +16,8 @@ const DefaultEvent = ({ name, date }) => {
   );
 };
 
-export default event => {
+const Index = event => {
   return <DefaultEvent {...event} />;
 };
+
+export default Index;

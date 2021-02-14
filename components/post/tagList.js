@@ -1,6 +1,6 @@
 import { codeFont } from "../../config";
 
-export default ({ tags, style }) => {
+const TagList = ({ tags, style }) => {
   const tagStyle = {
     fontFamily: codeFont,
     ...style,
@@ -8,3 +8,5 @@ export default ({ tags, style }) => {
 
   return <div style={tagStyle}>{tags.map(tag => `#${tag} `)}</div>;
 };
+
+export default TagList;

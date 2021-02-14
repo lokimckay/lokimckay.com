@@ -1,6 +1,6 @@
 import Skeleton from "../skeleton";
 
-export default ({
+const Vimeo = ({
   id,
   autoplay,
   loop,
@@ -43,3 +43,5 @@ export default ({
     </div>
   );
 };
+
+export default Vimeo;

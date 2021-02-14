@@ -4,7 +4,7 @@ import { getThemeFromTag } from "../../../lib/colourScheme";
 import ViewCount from "../viewCount";
 import Meta from "../meta";
 
-export default ({
+const Card = ({
   title,
   date,
   tags,
@@ -74,3 +74,5 @@ export default ({
     </div>
   );
 };
+
+export default Card;

@@ -1,4 +1,4 @@
-export default ({ id, width, height, autoplay, loop, mute, style }) => {
+const Youtube = ({ id, width, height, autoplay, loop, mute, style }) => {
   const get = value => {
     return value ? "1" : "0";
   };
@@ -31,3 +31,5 @@ export default ({ id, width, height, autoplay, loop, mute, style }) => {
     </div>
   );
 };
+
+export default Youtube;

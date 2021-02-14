@@ -1,7 +1,7 @@
 import Nav from "./nav";
 import Logo from "./logo";
 
-export default () => {
+const Header = () => {
   const headerStyle = {
     minWidth: 300,
     top: 0,
@@ -23,3 +23,5 @@ export default () => {
     </div>
   );
 };
+
+export default Header;

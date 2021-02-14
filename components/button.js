@@ -2,7 +2,7 @@ import { buttonFont } from "../config";
 import Icon from "./icon";
 import Link from "next/link";
 
-export default ({ wrapperStyle, icon, url, label, border }) => {
+const Button = ({ wrapperStyle, icon, url, label, border }) => {
   const borderStyle = border => {
     return border
       ? {
@@ -45,3 +45,5 @@ export default ({ wrapperStyle, icon, url, label, border }) => {
     </div>
   );
 };
+
+export default Button;

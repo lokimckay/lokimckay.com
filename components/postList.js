@@ -9,7 +9,7 @@ const byDate = (a, b) => {
   return new Date(b.date) - new Date(a.date);
 };
 
-export default ({ posts }) => {
+const PostList = ({ posts }) => {
   const containerStyle = {
     background: panelBgCol,
     maxWidth: 800,
@@ -40,3 +40,5 @@ export default ({ posts }) => {
     </div>
   );
 };
+
+export default PostList;

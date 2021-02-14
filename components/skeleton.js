@@ -1,4 +1,4 @@
-export default ({ style }) => {
+const Skeleton = ({ style }) => {
   const skeletonStyle = {
     position: "absolute",
     backgroundColor: "#CCCCCC",
@@ -13,3 +13,5 @@ export default ({ style }) => {
 
   return <div className="loading" style={skeletonStyle} />;
 };
+
+export default Skeleton;

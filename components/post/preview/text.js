@@ -1,4 +1,4 @@
-export default ({ title, date }) => {
+const Text = ({ title, date }) => {
   return (
     <div
       style={{
@@ -14,3 +14,5 @@ export default ({ title, date }) => {
     </div>
   );
 };
+
+export default Text;

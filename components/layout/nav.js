@@ -1,7 +1,7 @@
 import Button from "../button";
 import { navLinks } from "../../config";
 
-export default ({ borders = true }) => {
+const Nav = ({ borders = true }) => {
   const navItemStyle = ({ first, last }) => {
     return {
       pointerEvents: "auto",
@@ -30,3 +30,5 @@ export default ({ borders = true }) => {
     </nav>
   );
 };
+
+export default Nav;

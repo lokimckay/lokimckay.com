@@ -3,7 +3,7 @@ import Link from "next/link";
 import Card from "./card";
 import Text from "./text";
 
-export default post => {
+const Index = post => {
   const { preview, __resourcePath } = post;
   const route = resourcePathToUrl(__resourcePath);
   return (
@@ -12,3 +12,5 @@ export default post => {
     </Link>
   );
 };
+
+export default Index;

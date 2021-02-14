@@ -1,7 +1,7 @@
 import { logoFont, hideLogo } from "../../config";
 import Link from "next/link";
 
-export default () => {
+const Logo = () => {
   const logoStyle = {
     textDecoration: "none",
     color: "#000",
@@ -17,3 +17,5 @@ export default () => {
     </Link>
   );
 };
+
+export default Logo;

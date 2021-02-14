@@ -1,6 +1,6 @@
 import Skeleton from "../skeleton";
 
-export default ({ id, scale, autoplay, loop, autopause, mute, style }) => {
+const VimeoTile = ({ id, scale, autoplay, loop, autopause, mute, style }) => {
   const get = value => {
     return value ? "1" : "0";
   };
@@ -45,3 +45,5 @@ export default ({ id, scale, autoplay, loop, autopause, mute, style }) => {
     </div>
   );
 };
+
+export default VimeoTile;

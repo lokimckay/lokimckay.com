@@ -3,7 +3,7 @@ import { contactPoints } from "../config";
 import Icon from "../components/icon";
 import SplashBox from "../components/splashBox";
 
-export default () => {
+const Contact = () => {
   const containerStyle = {
     display: "inline-block",
   };
@@ -42,3 +42,5 @@ export default () => {
     </SplashBox>
   );
 };
+
+export default Contact;
