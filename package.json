@@ -2,8 +2,8 @@
   "name": "lachlanmckay.com",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/sneyed/lachlanmckay.com.git",
-  "author": "sneyed <sneyed@gmail.com>",
+  "repository": "https://github.com/lokimckay/lachlanmckay.com.git",
+  "author": "lokimckay <lokimckay@gmail.com>",
   "license": "MIT",
   "scripts": {
     "dev": "next",

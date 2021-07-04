@@ -22,14 +22,14 @@ export const panelBgCol = "rgba(255, 255, 255, 0.25)";
 export const contactPoints = [
   {
     name: "Github",
-    text: "github.com/sneyed",
-    url: "https://github.com/sneyed",
+    text: "github.com/lokimckay",
+    url: "https://github.com/lokimckay",
     icon: "github",
   },
   {
     name: "Twitter",
-    text: "twitter.com/sneyed",
-    url: "https://twitter.com/sneyed",
+    text: "twitter.com/lokimckay",
+    url: "https://twitter.com/lokimckay",
     icon: "twitter",
   },
   {
