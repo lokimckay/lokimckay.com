@@ -28,8 +28,8 @@ export const contactPoints = [
   },
   {
     name: "Twitter",
-    text: "twitter.com/lokimckay",
-    url: "https://twitter.com/lokimckay",
+    text: "twitter.com/sneyed",
+    url: "https://twitter.com/sneyed",
     icon: "twitter",
   },
   {
