@@ -34,7 +34,9 @@ const HomeInfo = () => {
     <>
       <h1 style={headingStyle}>Lachlan McKay</h1>
       <h2 style={subtitleStyle}>Software Engineer</h2>
-      <p style={taglineStyle}>I love creating visceral digital experiences</p>
+      <p style={taglineStyle}>
+        Fusing art and code into visceral digital experiences
+      </p>
       <ul style={pointsStyle}>
         <li style={pointStyle}>6 years industry experience</li>
         <li style={pointStyle}>
