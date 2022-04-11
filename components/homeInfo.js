@@ -34,12 +34,9 @@ const HomeInfo = () => {
     <>
       <h1 style={headingStyle}>Lachlan McKay</h1>
       <h2 style={subtitleStyle}>Software Engineer</h2>
-      <p style={taglineStyle}>
-        I love creative digital media that is intelligently designed under the
-        hood
-      </p>
+      <p style={taglineStyle}>I love creating visceral digital experiences</p>
       <ul style={pointsStyle}>
-        <li style={pointStyle}>4 years professional experience</li>
+        <li style={pointStyle}>6 years industry experience</li>
         <li style={pointStyle}>
           Financial services, academic and creative industries
         </li>
