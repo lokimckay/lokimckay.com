@@ -1,0 +1,36 @@
+---
+interface Props {
+  url: string;
+  alt?: string;
+  resize?: "post" | "halfPost" | "preview";
+  style?: Record<string, string>;
+  link?: boolean;
+}
+
+const { url, alt = "post image", resize, style, link = true } = Astro.props;
+
+const sizes = {
+  post: "?w=800&fit=max",
+  halfPost: "?w=400&fit=max",
+  preview: "?w=400&h=150&fit=crop&crop=center",
+};
+const sizeString = (resize && sizes[resize]) || "";
+const imgStyle = {
+  maxWidth: "100%",
+  borderRadius: 4,
+  padding: 0,
+  boxShadow: "0px 0px 8px 2px #EAEAEA",
+  ...style,
+};
+
+const raw = `https://cdn.sanity.io/images/gbwh96hl/production/${url}`;
+const src = `${raw}${sizeString}`;
+---
+
+{
+  link ? (
+    <a href={raw}>{<img alt={alt} src={src} style={imgStyle} />}</a>
+  ) : (
+    <img alt={alt} src={src} style={imgStyle} />
+  )
+}

@@ -1,0 +1,38 @@
+@import "./colors.css";
+@import "./buttons.css";
+@import "./nav.css";
+
+@font-face {
+  font-family: "Fixel";
+  src: url("/fonts/FixelVariable.ttf") format("truetype");
+}
+
+* {
+  font-family: "Fixel", Consolas, system-ui, sans-serif;
+  box-sizing: border-box;
+}
+
+main,
+article {
+  margin: auto;
+  width: 40em;
+}
+
+code {
+  font-family: Consolas, ui-monospace, monospace;
+}
+
+time {
+  font-size: 0.8em;
+  font-family: Consolas, ui-monospace, monospace;
+  text-transform: uppercase;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+  font-family: Consolas, ui-monospace, monospace;
+}

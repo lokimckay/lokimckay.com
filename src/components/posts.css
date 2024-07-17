@@ -1,0 +1,12 @@
+ul.posts {
+  list-style: none;
+  padding: 0;
+}
+
+ul.posts li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  column-gap: 1em;
+  align-items: center;
+  line-height: 1.35em;
+}

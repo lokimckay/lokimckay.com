@@ -1,0 +1,37 @@
+---
+title: "📷 Iota image resizer"
+preview: "text"
+date: "2018/11/14"
+tags: ["code"]
+# preview: "2c8a75297f40abb4631725454f8b9a6298fed10e-700x700.png"
+---
+
+//import Image from "@/components/sanity/image.astro";
+
+<div style={{ textAlign: "center" }}>
+  <Image
+    url="2c8a75297f40abb4631725454f8b9a6298fed10e-700x700.png"
+    resize="post"
+    style={{ width: "100%", objectFit: "cover" }}
+  />
+</div>
+
+## Rationale
+
+I needed to create Iota to automate the process of generating tiny images in order to use the [progressive image loading](https://jmperezperez.com/medium-image-progressive-loading-placeholder/) technique.
+
+Iota allows you to create a copy of a directory tree with every image in
+that tree resized to a desired percentage value.
+
+This is useful in the scenario I just mentioned when you want to switch
+between referring to a full size image vs a tiny version of that same
+image.
+
+Example:
+
+```cs
+https://myimagehost.com/username/images/full/cats/cat1.jpg  //Full size image
+https://myimagehost.com/username/images/tiny/cats/cat1.jpg  //Tiny image
+```
+
+[View the full README and source on Github](https://github.com/lokimckay/iota)

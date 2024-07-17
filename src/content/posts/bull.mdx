@@ -1,0 +1,60 @@
+---
+title: "Bull"
+date: "2017/03/01"
+tags: ["cgModelling", "animation", "character"]
+preview: "f625519aa6c0f83c65aaf80a7c3c5b12d22a50bf-2440x1660.png"
+---
+
+### Summary
+
+This character was created for Swordslide, a mobile game I worked on as part of a post-grad team.
+Modelled and animated with Autodesk Maya.
+
+### Credit
+
+- Texturing - [Benjamin Jong](https://www.behance.net/benjaminjong)
+- Character model and animation - [Lachlan McKay](https://lachlanmckay.com/about)
+
+<div
+  style={{
+    display: "flex",
+    justifyContent: "center",
+    flexWrap: "wrap",
+    marginTop: 24,
+  }}
+>
+  {gifs.map((gif, index) => (
+    <Image
+      key={index}
+      alt={gif.name}
+      url={gif.url}
+      resize="halfPost"
+      style={{
+        width: 396,
+        objectFit: "cover",
+        marginRight: index % 2 === 0 ? 8 : 0,
+      }}
+    />
+  ))}
+  {renders.map((render, index) => (
+    <Image
+      key={index}
+      alt={render.name}
+      url={render.url}
+      resize="post"
+      style={{ width: 800, objectFit: "cover" }}
+    />
+  ))}
+  <Image
+    alt="top"
+    url="fb1e89283cc9c16e77d39337d1ec03ee0052e60d-720x720.png"
+    resize="halfPost"
+    style={{ width: 396, objectFit: "cover", marginRight: 8 }}
+  />
+  <Image
+    alt="back"
+    url="60ca39083863d46c95202ce7b336fc5f0ccf7125-720x720.png"
+    resize="halfPost"
+    style={{ width: 396, objectFit: "cover" }}
+  />
+</div>

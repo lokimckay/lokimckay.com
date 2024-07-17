@@ -1,0 +1,9 @@
+h1 {
+  font-size: 2em;
+  margin-bottom: 0;
+}
+
+h1 + time {
+  display: block;
+  margin-bottom: 2em;
+}

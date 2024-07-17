@@ -1,0 +1,3 @@
+import Youtube from "../../../components/post/youtube";
+
+<Youtube id="eUo0hocOdms" loop />

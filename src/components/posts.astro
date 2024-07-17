@@ -1,0 +1,22 @@
+---
+import { getPostsList } from "@/lib/content";
+import "./posts.css";
+const posts = await getPostsList();
+---
+
+<ul class="posts">
+  {
+    posts.map(({ title, date, url }) => (
+      <li>
+        {url ? <a href={url}>{title}</a> : title}
+        <time class="date">
+          {new Date(date).toLocaleDateString("en-GB", {
+            year: "numeric",
+            month: "short",
+            day: "numeric",
+          })}
+        </time>
+      </li>
+    ))
+  }
+</ul>

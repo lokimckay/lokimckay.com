@@ -1,0 +1,18 @@
+:root {
+  --darkest: #000;
+  --lightest: #fff;
+
+  --link: #016eda;
+  --link-hover: #1c74dc;
+  --link-visited: #9c69ff;
+}
+
+html {
+  background: var(--lightest);
+  color: var(--darkest);
+}
+
+html.dark {
+  background: var(--darkest);
+  color: var(--lightest);
+}
