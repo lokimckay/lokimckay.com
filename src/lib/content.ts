@@ -1,7 +1,8 @@
 import { getCollection, type CollectionEntry } from "astro:content";
+import { pinnedPosts } from "@/lib/config";
 
 export type Post = CollectionEntry<"posts">;
-type PostLI = { title: string; date: string; url?: string };
+type PostLI = { title: string; date: string; slug?: string; url?: string };
 
 export async function getPostsList(): Promise<PostLI[]> {
   const _posts = await getCollection("posts");
@@ -9,6 +10,7 @@ export async function getPostsList(): Promise<PostLI[]> {
     title: data.title,
     date: data.date,
     url: `/posts/${slug}`,
+    slug,
   }));
   const _events = await getCollection("events");
   const events = _events.map(({ data }) => data.events).flat();
@@ -17,6 +19,8 @@ export async function getPostsList(): Promise<PostLI[]> {
   return sorted;
 }
 
-// export async function getPostsList() {
-//   const query =
-// }
+export async function getPinnedList(): Promise<PostLI[]> {
+  const posts = await getPostsList();
+  const pinned = posts.filter(({ slug }) => slug && pinnedPosts.includes(slug));
+  return pinned;
+}

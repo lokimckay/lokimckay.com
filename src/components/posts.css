@@ -14,3 +14,23 @@ ul.posts li {
 ul.posts li span {
   color: var(--muted);
 }
+
+ul.posts li a:hover {
+  position: relative;
+  left: 2px;
+}
+
+.pinned {
+  border: 1px dashed var(--muted);
+  padding: 1em 1.5em 1em 1em;
+  margin-left: -1em;
+  margin-right: -1.5em;
+  border-radius: 0.25em;
+}
+.pinned ul {
+  margin: 0;
+}
+.pinned > span:first-of-type {
+  display: block;
+  margin-bottom: 1em;
+}
