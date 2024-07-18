@@ -1,3 +1,0 @@
-import Tweet from "../../../components/post/tweet";
-
-<Tweet id={"1343421516394815490"} />

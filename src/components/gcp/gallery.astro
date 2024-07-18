@@ -1,0 +1,9 @@
+---
+import BaseGallery, {
+  type Props as BaseProps,
+} from "@/components/gallery.astro";
+import { gcpBaseUrl } from "@/lib/config";
+interface Props extends BaseProps {}
+---
+
+<BaseGallery {...Astro.props} base={gcpBaseUrl} />

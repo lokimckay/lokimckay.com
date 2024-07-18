@@ -1,6 +1,9 @@
 :root {
   --darkest: #000;
   --lightest: #fff;
+  --muted: #ababab;
+
+  --code-highlight: #1a2d3d;
 
   --link: #016eda;
   --link-hover: #1c74dc;

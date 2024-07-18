@@ -1,24 +1,10 @@
 ---
-title: "Chronodash"
-date: "2015/12/30"
-tags: ["game"]
-preview: "3d534d528d71cd9705a261ebe1d7c2b91911a22e-2048x712.png"
+title: 🎮 Chronodash
+date: 2015/12/30
 ---
 
-export const images = [
-  {
-    url: "3d534d528d71cd9705a261ebe1d7c2b91911a22e-2048x712.png",
-    name: "banner",
-  },
-  {
-    url: "f90921d1a8f17a5466e55384967769d8625b7405-1920x1080.png",
-    name: "splash",
-  },
-  {
-    url: "57442949598310c29c9bdca32c00ac1397d9ed01-2048x773.png",
-    name: "pirate map",
-  },
-];
+import Vimeo from "@/components/embeds/vimeo.astro";
+import Gallery from "@/components/gcp/gallery.astro";
 
 ## Premise
 
@@ -32,24 +18,14 @@ Griffith University.
 
 <Vimeo id="144641475" />
 
-<div
-  style={{
-    display: "flex",
-    justifyContent: "center",
-    flexWrap: "wrap",
-    marginTop: 24,
-  }}
->
-  {images.map((img, index) => (
-    <Image
-      key={index}
-      alt={img.name}
-      url={img.url}
-      resize="post"
-      style={{ width: 800, objectFit: "cover", marginBottom: 8 }}
-    />
-  ))}
-</div>
+<Gallery
+  minWidth="100%"
+  images={[
+    "chronodash-characters.png",
+    "chronodash-splash.png",
+    "chronodash-map.png",
+  ]}
+/>
 
 ## Team
 

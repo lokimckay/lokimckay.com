@@ -8,7 +8,7 @@ const posts = await getPostsList();
   {
     posts.map(({ title, date, url }) => (
       <li>
-        {url ? <a href={url}>{title}</a> : title}
+        {url ? <a href={url}>{title}</a> : <span>{title}</span>}
         <time class="date">
           {new Date(date).toLocaleDateString("en-GB", {
             year: "numeric",

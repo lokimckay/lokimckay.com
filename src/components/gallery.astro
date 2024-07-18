@@ -1,0 +1,13 @@
+---
+import "./gallery.css";
+export interface Props {
+  minWidth?: string;
+  images: string[];
+  base?: string;
+}
+const { images = [], base = "", minWidth } = Astro.props;
+---
+
+<div class="gallery" style={minWidth && `--minWidth: ${minWidth}`}>
+  {images.map((image) => <img src={`${base}${image}`} />)}
+</div>

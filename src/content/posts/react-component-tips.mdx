@@ -1,13 +1,11 @@
 ---
-title: "React Component Tips"
-date: "2020/08/11"
-tags: ["code"]
-unsplash: "c8h0n7fSTqs"
+title: 💻 React Component Tips
+date: 2020/08/11
 ---
 
 In this post I share some tips for how you can refactor your react components to be readable and [declarative] 💣
 
-# Table of Contents
+## Table of Contents
 
 1. [Remove extra divs]
 1. [Remove unnecessary closing tags]
@@ -25,7 +23,7 @@ Use `<>` ([react fragment shorthand]) if you just need an invisible container
 
 ❌ _Instead of this:_
 
-```jsx{3,7}
+```jsx {3,7}
 const Component = () => {
   return (
     <div>
@@ -39,7 +37,7 @@ const Component = () => {
 
 ✔️ _Do this:_
 
-```jsx{3,7}
+```jsx {3,7}
 const Component = () => {
   return (
     <>
@@ -58,7 +56,7 @@ Just close the element with `/>` instead
 
 ❌ _Instead of this:_
 
-```jsx{2}
+```jsx {2}
 const Component = () => {
   return <Child foo={bar}></Child>;
 };
@@ -66,7 +64,7 @@ const Component = () => {
 
 ✔️ _Do this:_
 
-```jsx{2}
+```jsx {2}
 const Component = () => {
   return <Child foo={bar} />;
 };
@@ -78,7 +76,7 @@ Avoid concatenating strings by using [template literals] instead
 
 ❌ _Instead of this:_
 
-```jsx{2}
+```jsx {2}
 const Component = ({ classes }) => {
   return <div className={"bg-white " + classes} />;
 };
@@ -86,7 +84,7 @@ const Component = ({ classes }) => {
 
 ✔️ _Do this:_
 
-```jsx{2}
+```jsx {2}
 const Component = ({ classes }) => {
   return <div className={`bg-white ${classes}`} />;
 };
@@ -98,8 +96,8 @@ const Component = ({ classes }) => {
 
 ❌ _Instead of this:_
 
-```jsx{1,4-6}
-const Component = props => {
+```jsx {1,4-6}
+const Component = (props) => {
   return (
     <div>
       <h1>{props.title}</h1>
@@ -112,7 +110,7 @@ const Component = props => {
 
 ✔️ _Do this:_
 
-```jsx{1,4-6}
+```jsx {1,4-6}
 const Component = ({ title, date, description }) => {
   return (
     <div>
@@ -127,8 +125,8 @@ const Component = ({ title, date, description }) => {
 You can destructure any variable within the function as well  
 Useful if you need to pass the entire props variable to a child
 
-```jsx{1,2,8,9}
-const Component = props => {
+```jsx {1,2,8,9}
+const Component = (props) => {
   const { title, date, description } = props;
   return (
     <div>
@@ -176,7 +174,7 @@ You can check that a property is not falsy using the logical AND operator (`&&`)
 
 ❌ _Instead of this:_
 
-```jsx{3}
+```jsx {3}
 const Component = ({ propertyA }) => {
   let propertyAIsValid = false;
   if (propertyA !== undefined && propertyA !== null && propertyA !== "") {
@@ -188,7 +186,7 @@ const Component = ({ propertyA }) => {
 
 ✔️ _Do this:_
 
-```jsx{2}
+```jsx {2}
 const Component = ({ propertyA }) => {
   return propertyA && propertyA !== "" ? (
     <>Yep it's valid!</>
@@ -283,9 +281,6 @@ const Component = ({ loading, data, error }) => {
 ```
 
 Thanks for reading 😃
-
-[❔ Feedback](/contact)  
-[☝️ Back to top](#top)
 
 [remove extra divs]: #1-remove-extra-divs
 [remove unnecessary closing tags]: #2-remove-unnecessary-closing-tags

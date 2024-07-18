@@ -1,9 +1,20 @@
 h1 {
   font-size: 2em;
+}
+
+h1:has(+ time) {
   margin-bottom: 0;
 }
 
 h1 + time {
   display: block;
-  margin-bottom: 2em;
+  margin-bottom: 3em;
+}
+
+table {
+  width: 100%;
+}
+
+th {
+  border-bottom: 1px dashed;
 }

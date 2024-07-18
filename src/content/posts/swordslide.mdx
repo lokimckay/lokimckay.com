@@ -1,27 +1,10 @@
 ---
-title: "Swordslide"
-date: "2017/06/01"
-tags: ["game"]
-preview: "e391601f451c9869023660d473b49e4a31a12745-1000x568.png"
+title: 🎮 Swordslide
+date: 2017/06/01
 ---
 
-//import Vimeo from "../../../components/post/vimeoTile";
-//import Image from "@/components/sanity/image.astro";
-
-export const Video = ({ id, scale }) => (
-  <Vimeo
-    id={id}
-    mute
-    loop
-    autoplay
-    scale={scale}
-    style={{
-      width: 800,
-      height: 500,
-      marginBottom: 8,
-    }}
-  />
-);
+import Image from "@/components/gcp/image.astro";
+import Vimeo from "@/components/embeds/vimeo.astro";
 
 ## Premise
 
@@ -35,31 +18,13 @@ subsequent levels.
 
 ---
 
-<div
-  style={{
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    flexWrap: "wrap",
-  }}
->
-  <Image
-    url="e391601f451c9869023660d473b49e4a31a12745-1000x568.png"
-    resize="post"
-    style={{ marginBottom: 8 }}
-  />
-  <Image
-    url="090b0cef26d5733dba7f9ce2a27fe08103617963-1920x1080.png"
-    resize="post"
-    style={{ marginBottom: 8 }}
-  />
-  <br />
-  <Video id="427023401" scale={1000} />
-  <Video id="427022411" scale={800} />
-  <Video id="427023720" scale={800} />
-  <Video id="427024115" scale={800} />
-</div>
+<Image src="swordslide-screenshot.png" />
+<Image src="swordslide-benchmark.png" />
 
+<Vimeo id="427022411" loop autoplay />
+<Vimeo id="427023720" loop />
+<Vimeo id="427024115" loop />
+<Vimeo id="427023401" loop />
 ---
 
 ## Team

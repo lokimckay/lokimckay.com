@@ -1,0 +1,28 @@
+---
+interface Props {
+  widgetSrc?: string;
+  gameSrc?: string;
+}
+const { widgetSrc, gameSrc } = Astro.props;
+---
+
+<div class="itchio-embed">
+  {widgetSrc && <iframe src={widgetSrc} width="800" height="167" />}
+  {
+    gameSrc && (
+      <div class="game">
+        <iframe src={gameSrc} allowfullscreen width="100%" height="100%" />
+      </div>
+    )
+  }
+</div>
+
+<style>
+  .itchio-embed {
+    position: relative;
+    width: 800px;
+    height: 470px;
+    border: 0;
+    margin: 0;
+  }
+</style>

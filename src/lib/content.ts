@@ -16,3 +16,7 @@ export async function getPostsList(): Promise<PostLI[]> {
   const sorted = merged.sort((a, b) => (a.date > b.date ? -1 : 1));
   return sorted;
 }
+
+// export async function getPostsList() {
+//   const query =
+// }

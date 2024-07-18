@@ -1,9 +1,9 @@
 ---
-title: "🗃️ Portfolio using Hugo"
-preview: "text"
-date: "2017/01/01"
-tags: ["code"]
+title: 🌎 Portfolio using Hugo
+date: 2017/01/01
 ---
+
+import Gallery from "@/components/gcp/gallery.astro";
 
 ## Summary
 
@@ -11,43 +11,17 @@ Version 1 of `lachlanmckay.com` was a great success in that I was
 able to get my feet wet with hosting, deployment and some source
 management using Hugo. However it still had many problems related to
 load times, SEO and navigtation. I aimed to fix these issues in the
-second version, which you can <Link href="/posts/2018/jekyll"><a>read about here</a></Link>
+second version, which you can <a href="/posts/portfolio-using-jekyll">read about here</a>
 
-<div
-  style={{
-    display: "flex",
-    justifyContent: "center",
-    flexWrap: "wrap",
-    marginTop: 24,
-  }}
->
-  {full.map((img, index) => (
-    <Image
-      key={index}
-      alt={img.name}
-      url={img.url}
-      resize="post"
-      style={{
-        width: 800,
-        objectFit: "cover",
-      }}
-    />
-  ))}
-  {half.map((img, index) => (
-    <Image
-      key={index}
-      alt={img.name}
-      url={img.url}
-      resize="halfPost"
-      style={{
-        width: 396,
-        height: 225,
-        marginRight: index % 2 === 0 ? 8 : 0,
-        objectFit: "cover",
-      }}
-    />
-  ))}
-</div>
+<Gallery
+  images={[
+    "portfolio-using-hugo-about.png",
+    "portfolio-using-hugo-home-dark.png",
+    "portfolio-using-hugo-home.png",
+    "portfolio-using-hugo-cg-modelling.png",
+    "portfolio-using-hugo-vfx.png",
+  ]}
+/>
 
 ## Rationale
 

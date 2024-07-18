@@ -1,0 +1,8 @@
+---
+interface Props {
+  url: string;
+}
+const { url } = Astro.props;
+---
+
+<script src={`${url}.js`}></script>

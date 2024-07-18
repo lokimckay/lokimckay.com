@@ -3,7 +3,13 @@ events:
   - title: 👶 Born - NSW AUS
     date: 1995/09/15
 
-  - title: 🎓 Graduated - Griffith University, Bachelor of Games Design
+  - title: 🚚 Moved - QLD AUS
+    date: 2006/01/01
+
+  - title: 🎓 Graduated HS - Dux of Film and Television
+    date: 2012/01/01
+
+  - title: 🎓 Graduated Griffith University - Bachelor of Games Design
     date: 2015/12/14
 
   - title: 💼 Schnitz - Casual Team Member
@@ -17,3 +23,6 @@ events:
 
   - title: 💼 Liquid Interactive - Full stack developer
     date: 2020/02/06
+
+  - title: 💼 Self employed - Code Cabana
+    date: 2023/04/01

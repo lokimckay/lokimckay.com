@@ -10,3 +10,7 @@ ul.posts li {
   align-items: center;
   line-height: 1.35em;
 }
+
+ul.posts li span {
+  color: var(--muted);
+}

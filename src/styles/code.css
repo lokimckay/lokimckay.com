@@ -1,0 +1,22 @@
+.astro-code {
+  font-family: var(--code-font);
+  border-radius: var(--border-radius);
+  padding: 1em 0;
+  line-height: 1.5;
+  tab-size: 4;
+}
+
+.astro-code .line {
+  padding: 0 1em;
+  display: inline-block;
+  width: 100%;
+}
+
+/* Bug: empty line is present at the end - https://github.com/shikijs/shiki/issues/3 */
+.astro-code .line:last-child:empty {
+  display: none;
+}
+
+.astro-code .line.highlighted {
+  background-color: var(--code-highlight);
+}

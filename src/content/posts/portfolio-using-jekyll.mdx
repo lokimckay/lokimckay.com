@@ -1,11 +1,10 @@
 ---
-title: "🗃️ Portfolio using Jekyll"
-preview: "text"
-date: "2018/01/01"
-tags: ["code"]
-# preview: "ed35982fbe0fd54a0e2575d453c1de65c78d8339-1680x914.png"
-# focalY: 0.65
+title: 🌎 Portfolio using Jekyll
+date: 2018/01/01
 ---
+
+import Gallery from "@/components/gcp/gallery.astro";
+import Gist from "@/components/embeds/gist.astro";
 
 ## Summary
 
@@ -13,28 +12,13 @@ Upgraded my personal website to leverage more modern tech such as bootstrap,
 jekyll and masonry. Improved a lot of issues such as image load times and
 responsiveness.
 
-<div style={{ textAlign: "center" }}>
-  <div style={{ display: "flex", justifyContent: "space-between" }}>
-    <Image
-      alt="about page"
-      url="ed35982fbe0fd54a0e2575d453c1de65c78d8339-1680x914.png"
-      resize="post"
-      style={{ height: 320, objectFit: "cover", marginBottom: 16 }}
-    />
-    <Image
-      alt="about page mobile view"
-      url="ee8d2db18e47f76add9036375d80e994b9071cf5-500x834.png"
-      resize="post"
-      style={{ height: 320, objectFit: "cover", marginBottom: 16 }}
-    />
-  </div>
-  <Image
-    alt="contact page"
-    url="558a4b136af0fd0211eca644ec3c89e73640dc3a-1000x527.png"
-    resize="post"
-    style={{ objectFit: "cover", marginBottom: 16 }}
-  />
-</div>
+<Gallery
+  images={[
+    "portfolio-using-jekyll-about.png",
+    "portfolio-using-jekyll-mobile.png",
+    "portfolio-using-jekyll-contact.png",
+  ]}
+/>
 
 ## Rationale
 
@@ -79,7 +63,7 @@ becomes slightly shifted to the left - off center. I leveraged a
 combination of two solutions, one from [Ayke van Laëthem](https://aykevl.nl/2014/09/fix-jumping-scrollbar) and another from [Chyno Deluxe](https://teamtreehouse.com/community/how-to-prevent-scrollbar-from-shifting-content-of-the-page)
 to produce this solution:
 
-<Gist id="acb8ba546cb5c560e8846c56bdd7065b" />
+<Gist url="https://gist.github.com/lokimckay/acb8ba546cb5c560e8846c56bdd7065b" />
 
 Here's how it works:
 
