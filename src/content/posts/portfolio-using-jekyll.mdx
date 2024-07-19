@@ -4,7 +4,6 @@ date: 2018/01/01
 ---
 
 import Gallery from "@/components/gcp/gallery.astro";
-import Gist from "@/components/embeds/gist.astro";
 
 ## Summary
 
@@ -63,7 +62,12 @@ becomes slightly shifted to the left - off center. I leveraged a
 combination of two solutions, one from [Ayke van Laëthem](https://aykevl.nl/2014/09/fix-jumping-scrollbar) and another from [Chyno Deluxe](https://teamtreehouse.com/community/how-to-prevent-scrollbar-from-shifting-content-of-the-page)
 to produce this solution:
 
-<Gist url="https://gist.github.com/lokimckay/acb8ba546cb5c560e8846c56bdd7065b" />
+```css
+html,
+body {
+  margin-right: calc((100vw - 100%) * -1);
+}
+```
 
 Here's how it works:
 

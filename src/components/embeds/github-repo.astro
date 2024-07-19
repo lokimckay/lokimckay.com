@@ -95,4 +95,6 @@ const { id } = Astro.props;
   }
 
   window.addEventListener("DOMContentLoaded", reloadRepoCards);
+  document.addEventListener("astro:after-swap", reloadRepoCards);
+  document.addEventListener("astro:page-load", reloadRepoCards);
 </script>
