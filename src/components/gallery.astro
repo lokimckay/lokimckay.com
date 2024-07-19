@@ -5,13 +5,15 @@ export interface Props {
   base?: string;
   width?: string;
   height?: string;
-  minWidth?: string;
+  gap?: string;
+  columns?: string;
 }
-const { images = [], base = "", width, height, minWidth } = Astro.props;
+const { images = [], base = "", width, height, gap, columns } = Astro.props;
 let style: any = {};
 if (width) style["--width"] = width;
 if (height) style["--height"] = height;
-if (minWidth) style["--minWidth"] = width || minWidth;
+if (gap) style["--gap"] = gap;
+if (columns) style["--columns"] = columns;
 ---
 
 <div class="gallery" style={style}>
