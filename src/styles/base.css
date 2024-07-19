@@ -12,6 +12,7 @@
   --border-radius: 0.2em;
   --body-font: "Fixel", Consolas, system-ui, sans-serif;
   --code-font: Consolas, ui-monospace, monospace;
+  --page-padding: 1em;
 }
 
 * {
@@ -19,6 +20,8 @@
 }
 
 body {
+  margin: 0;
+  padding: var(--page-padding);
   padding-bottom: 10em;
   font-family: var(--body-font);
 }

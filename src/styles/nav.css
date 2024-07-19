@@ -5,7 +5,8 @@ a {
 a:visited {
   color: var(--link-visited);
 }
-nav a:visited {
+nav a:visited,
+a.back:visited {
   color: var(--link);
 }
 a:hover,
