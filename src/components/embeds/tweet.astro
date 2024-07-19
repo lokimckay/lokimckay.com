@@ -1,0 +1,13 @@
+---
+interface Props {
+  url: string;
+}
+const { url } = Astro.props;
+const id = url.match(/\d{8,}/g);
+---
+
+<blockquote class="twitter-tweet" data-dnt="true" data-theme="dark">
+  <a href={`https://twitter.com/username/status/${id}`}></a>
+</blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"
+></script>

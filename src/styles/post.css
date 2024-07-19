@@ -1,0 +1,33 @@
+h1 {
+  font-size: 2em;
+}
+
+h1:has(+ time) {
+  margin-bottom: 0;
+}
+
+h1 + time {
+  display: block;
+  margin-bottom: 3em;
+}
+
+table {
+  width: 100%;
+}
+
+table td,
+table th {
+  padding: 0.5em;
+}
+table th {
+  border-bottom: 2px solid var(--muted);
+}
+table td {
+  border-bottom: 1px dashed var(--muted);
+}
+
+a.back {
+  position: fixed;
+  top: var(--page-padding);
+  left: var(--page-padding);
+}

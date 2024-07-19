@@ -1,0 +1,11 @@
+---
+import Base from "./base.astro";
+import "@/styles/post.css";
+---
+
+<Base>
+  <a href="/" class="back" slot="before-nav">← Home</a>
+  <article>
+    <slot />
+  </article>
+</Base>

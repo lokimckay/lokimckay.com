@@ -1,0 +1,69 @@
+---
+title: 🌎 Portfolio using React
+date: 2018/11/23
+---
+
+import Image from "@/components/gcp/image.astro";
+
+<Image src="portfolio-using-react-home.png" />
+
+## Summary
+
+I upgraded my portfolio site because I have learned a lot of new
+React skills during my time at Suncorp thanks to Pluralsight. I've also come to
+love the idea of minimal configuration wherever possible. Using React, Travis
+and Github pages I eliminated many of the maintenance overheads of the previous
+implementation including:
+
+- Upload of artifacts to S3 buckets (now artifacts are built and deployed from source using Travis)
+- Minimal configuration web hosting using Github Pages
+- Inconsistency between development and production environments using React
+
+A big thanks to [Mike Villis](https://blog.mikevillis.com/) for providing a very
+easy to follow process. Take a look at his article on how to set up your own [Simple
+React Site](https://blog.mikevillis.com/simple-react-site-with-create-react-app-github-pages-travis-ci-and-cloudflare-8a859daa881?gi=5bc18ab546dd)
+for free!
+
+[View the full README and source for lachlanmckay.com on Github](https://github.com/lokimckay/lachlanmckay.com)
+
+### Hosting Tech
+
+| Technology                                                | Use                                         |
+| --------------------------------------------------------- | ------------------------------------------- |
+| [Github](https://github.com/lokimckay)                    | Source code hosting                         |
+| [Github Pages](https://pages.github.com/)                 | Free static file hosting                    |
+| [Google Cloud Storage](https://cloud.google.com/storage/) | Media file hosting (images/video/pdfs etc.) |
+
+### Development Tech
+
+| Technology                                                 | Use                                                     |
+| ---------------------------------------------------------- | ------------------------------------------------------- |
+| [React](https://reactjs.org/)                              | Facebook favoured frontend js library                   |
+| [Redux](https://redux.js.org/)                             | State management that works well with React             |
+| [Bootstrap](https://getbootstrap.com/)                     | Responsive styling                                      |
+| [Travis](https://travis-ci.org/)                           | Free automated ci/cd to github pages                    |
+| [Three.js](https://threejs.org/)                           | Javascript 3D library - used for the 3D eye on homepage |
+| [Font Awesome](https://fontawesome.com/)                   | Social media buttons without having to host the images  |
+| [Masonry](https://masonry.desandro.com/)                   | Layout beautifier. Used with image galleries            |
+| [Real Favicon Generator](http://realfavicongenerator.net/) | Creating favicon files for many platforms               |
+| [Parallax](http://matthew.wagerfield.com/parallax/)        | Moving background images                                |
+| [ESLint](https://eslint.org/)                              | Cleans your source code                                 |
+| [Prettier](https://github.com/prettier/prettier)           | Makes your source code pretty                           |
+
+## Retrospective
+
+#### What went well?
+
+- React & javascript more flexible than previous Hugo and Jekyll implementation - I could achieve what I was trying to do without thinking as hard
+- React development experience much nicer than Hugo (automatic hot reloading with no config required, quick project setup etc.)
+- Continuous integration / delivery with Travis means no uploading files to AWS buckets
+- Github pages automatically handles web hosting configuration
+
+#### What could be improved?
+
+- Migration of post data and content from previous implementation to current was tedious and took a while. This could be separated out into a 3rd party such as Medium
+- Post media (images / videos) are still somewhat manually managed using Google Cloud Storage. I am considering moving to a CMS such as Sanity.io
+
+#### What still puzzles me?
+
+- Would like to learn about the benefits of React server side rendering and when it should be used. I assumed client side rendering would be sufficient for this project

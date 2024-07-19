@@ -1,0 +1,20 @@
+---
+title: 🗡️ Godot Rapier 3D
+date: 2024/06/19
+---
+
+import Github from "@/components/embeds/github-repo.astro";
+
+<Github id="deltasiege/godot-rapier-3d" />
+
+Initially I set out to create a 3D multiplayer RTS game using the Godot game engine.
+
+I wanted to use a rollback networking system to ensure a smooth multiplayer experience.
+
+When researching rollback implementations, I found that options for 3D Godot games are limited, because Godot's physics engine does not even try to achieve determinism.
+
+Furthermore, options for integrating a deterministic 3D physics engine into Godot are also limited.
+
+I decided to tackle this problem by integrating the [Rapier](https://rapier.rs/) physics engine into Godot.
+
+The project is not quite ready to be used for games yet, but I plan to keep making steady progress over the long term so that I can create my RTS game.

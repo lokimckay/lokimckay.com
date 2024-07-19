@@ -1,0 +1,36 @@
+ul.posts {
+  list-style: none;
+  padding: 0;
+}
+
+ul.posts li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  column-gap: 1em;
+  align-items: center;
+  line-height: 1.35em;
+}
+
+ul.posts li span {
+  color: var(--muted);
+}
+
+ul.posts li a:hover {
+  position: relative;
+  left: 2px;
+}
+
+.pinned {
+  border: 1px dashed var(--muted);
+  padding: 1em 1.5em 1em 1em;
+  margin-left: -1em;
+  margin-right: -1.5em;
+  border-radius: 0.25em;
+}
+.pinned ul {
+  margin: 0;
+}
+.pinned > span:first-of-type {
+  display: block;
+  margin-bottom: 1em;
+}

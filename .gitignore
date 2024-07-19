@@ -1,33 +1,24 @@
-# Logs
-logs
-*.log
-
-# next.js build output
-.next
-.mdx-data
+# build output
+dist/
+# generated types
+.astro/
 
 # dependencies
-/node_modules
+node_modules/
 
-# NPM and Yarn
-.npm
-*.tgz
-.node_repl_history
-.yarn-integrity
+# logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
 
-# dotenv
+
+# environment variables
 .env
-.env.local
+.env.production
 
-# vercel
-.vercel
-vercel.json
+# macOS-specific files
+.DS_Store
 
-# image
-Thumbs.db
-
-# ide
-.vscode
+# jetbrains setting folder
+.idea/

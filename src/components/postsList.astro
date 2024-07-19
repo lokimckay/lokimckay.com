@@ -1,0 +1,23 @@
+---
+interface Props {
+  posts: { title: string; date: string; url?: string }[];
+}
+const { posts } = Astro.props;
+---
+
+<ul class="posts">
+  {
+    posts.map(({ title, date, url }) => (
+      <li>
+        {url ? <a href={url}>{title}</a> : <span>{title}</span>}
+        <time class="date">
+          {new Date(date).toLocaleDateString("en-GB", {
+            year: "numeric",
+            month: "short",
+            day: "numeric",
+          })}
+        </time>
+      </li>
+    ))
+  }
+</ul>

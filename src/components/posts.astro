@@ -1,0 +1,15 @@
+---
+import { getPostsList } from "@/lib/content";
+import { pinnedPosts } from "@/lib/config";
+import PostsList from "./postsList.astro";
+import "./posts.css";
+const posts = await getPostsList();
+const pinned = posts.filter(({ slug }) => slug && pinnedPosts.includes(slug));
+---
+
+<div class="pinned">
+  <span>📌 Pinned</span>
+  <PostsList posts={pinned} />
+</div>
+
+<PostsList posts={posts} />
