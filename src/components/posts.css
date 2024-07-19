@@ -11,6 +11,15 @@ ul.posts li {
   line-height: 1.35em;
 }
 
+@media (max-width: 40rem) {
+  ul.posts li span,
+  ul.posts li a {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
 ul.posts li span {
   color: var(--muted);
 }
@@ -22,11 +31,19 @@ ul.posts li a:hover {
 
 .pinned {
   border: 1px dashed var(--muted);
-  padding: 1em 1.5em 1em 1em;
-  margin-left: -1em;
-  margin-right: -1.5em;
   border-radius: 0.25em;
+  padding: var(--page-padding);
+  margin-left: calc(-1 * var(--page-padding));
+  margin-right: calc(-1 * var(--page-padding));
 }
+
+@media (min-width: 40rem) {
+  .pinned {
+    padding-right: calc(var(--page-padding) * 1.2);
+    margin-right: calc(-1 * var(--page-padding) * 1.2);
+  }
+}
+
 .pinned ul {
   margin: 0;
 }

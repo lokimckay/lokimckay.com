@@ -26,8 +26,14 @@ table td {
   border-bottom: 1px dashed var(--muted);
 }
 
-a.back {
+a.back-fixed {
   position: fixed;
   top: var(--page-padding);
   left: var(--page-padding);
+}
+
+@media (max-width: 40rem) {
+  a.back-fixed {
+    display: none;
+  }
 }
