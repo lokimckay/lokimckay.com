@@ -10,3 +10,4 @@
 - [ ] Self host vimeo videos
 - [ ] Switch embeds to light theme when theme is toggled
 - [ ] Use progressive jpeg for bg images
+- [ ] Lightbox for galleries
