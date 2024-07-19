@@ -22,14 +22,13 @@ html.dark {
 
 .bg {
   position: fixed;
-  z-index: -100;
+  z-index: -1;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  right: 0;
+  bottom: 0;
   background-image: url("https://storage.cloud.google.com/lokimckay-com/bg-dark.png");
   background-size: cover;
-  background-position: fixed;
 }
 
 html:not(.dark) .bg {
