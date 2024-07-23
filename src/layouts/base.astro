@@ -18,6 +18,19 @@ const { title = siteName } = Astro.props;
       href={`data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text x=%22-.1em%22 y=%22.95em%22 font-size=%2285%22>${favicon}</text></svg>`}
     />
     <ViewTransitions />
+    <script is:inline>
+      // dark / light mode
+      const canUseLS = typeof localStorage !== "undefined";
+      const stored = canUseLS && localStorage.getItem("theme");
+      const classList = document.documentElement.classList;
+      if (stored) classList.add(stored);
+      else {
+        const sys = window.matchMedia("(prefers-color-scheme: light)").matches;
+        classList.add(sys ? "light" : "dark");
+        classList.remove(sys ? "dark" : "light");
+        localStorage.setItem("theme", sys ? "light" : "dark");
+      }
+    </script>
   </head>
   <body>
     <div class="bg"></div>
