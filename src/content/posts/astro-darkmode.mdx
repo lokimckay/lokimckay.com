@@ -11,16 +11,20 @@ Include this in the _`<head>`_:
 ```html
 <script is:inline>
   // dark / light mode
-  const canUseLS = typeof localStorage !== "undefined";
-  const stored = canUseLS && localStorage.getItem("theme");
-  const classList = document.documentElement.classList;
-  if (stored) classList.add(stored);
-  else {
-    const sys = window.matchMedia("(prefers-color-scheme: light)").matches;
-    classList.add(sys ? "light" : "dark");
-    classList.remove(sys ? "dark" : "light");
-    localStorage.setItem("theme", sys ? "light" : "dark");
+  function checkTheme() {
+    const canUseLS = typeof localStorage !== "undefined";
+    const stored = canUseLS && localStorage.getItem("theme");
+    const classList = document.documentElement.classList;
+    if (stored) classList.add(stored);
+    else {
+      const sys = window.matchMedia("(prefers-color-scheme: light)").matches;
+      classList.add(sys ? "light" : "dark");
+      classList.remove(sys ? "dark" : "light");
+      localStorage.setItem("theme", sys ? "light" : "dark");
+    }
   }
+  checkTheme();
+  document.addEventListener("astro:after-swap", checkTheme);
 </script>
 ```
 
