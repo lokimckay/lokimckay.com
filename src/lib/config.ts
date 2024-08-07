@@ -4,7 +4,7 @@ export const gcpBaseUrl = "https://storage.cloud.google.com/lokimckay-com/";
 
 export const pinnedPosts = [
   "astro-starter",
-  "preact-skeletons",
+  "component-skeletons",
   "godot-rapier-3d",
   "civitai-model-browser",
   "bull",
