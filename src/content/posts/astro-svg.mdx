@@ -1,0 +1,48 @@
+---
+title: 🖼️ Astro SVG
+date: 2024/08/08
+---
+
+I needed to embed SVG icons into an Astro project I'm working on.
+
+[This great blog post](https://ellodave.dev/blog/article/using-svgs-as-astro-components-and-inline-css/) by Dave Warrington got me most of the way, but I made a few tweaks to update some deprecated arguments and cut it down a bit.
+
+Below is the final code I used.
+
+```astro
+---
+import { parse } from "node-html-parser";
+import type { HTMLAttributes } from "astro/types";
+
+export interface Props extends HTMLAttributes<"svg"> {
+  icon: string;
+}
+
+async function getSVG(name: string) {
+  const filepath = `../../public/img/${name}.svg`;
+  const files = import.meta.glob<string>("../../public/img/**/*.svg", {
+    query: "?raw",
+    import: "default",
+  });
+
+  if (!(filepath in files)) {
+    throw new Error(`${filepath} not found`);
+  }
+
+  const content = await files[filepath]();
+  const root = parse(content);
+  const svg = root.querySelector("svg");
+  const { attributes, innerHTML } = svg || {};
+
+  return {
+    attributes,
+    innerHTML,
+  };
+}
+
+const { icon, ...rest } = Astro.props as Props;
+const { attributes, innerHTML } = await getSVG(icon);
+---
+
+<svg {...attributes} {...rest} set:html={innerHTML} />
+```
