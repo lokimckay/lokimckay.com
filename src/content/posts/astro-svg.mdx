@@ -9,6 +9,17 @@ This great blog post ["Using SVGs as Astro components and inline CSS"](https://e
 
 Below is the final code I used.
 
+## Example usage
+
+```astro
+---
+import Icon from "@/components/icon.astro";
+---
+<Icon icon="question" width="2em" />
+```
+
+## icon.astro
+
 ```astro
 ---
 import { parse } from "node-html-parser";
