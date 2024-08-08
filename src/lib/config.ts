@@ -1,6 +1,6 @@
 export const favicon = "😈";
 export const siteName = "Loki McKay";
-export const gcpBaseUrl = "https://storage.cloud.google.com/lokimckay-com/";
+export const storageHost = "https://s3.us-east-1.amazonaws.com/ltm.bio/";
 
 export const pinnedPosts = [
   "astro-starter",

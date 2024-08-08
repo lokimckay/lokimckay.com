@@ -1,9 +1,10 @@
 ---
 import type { HTMLAttributes } from "astro/types";
+import { storageHost } from "@/lib/config";
 
 interface Props extends HTMLAttributes<"img"> {}
 const { src } = Astro.props;
-const url = `https://storage.cloud.google.com/lokimckay-com/${src}`;
+const url = `${storageHost}${src}`;
 ---
 
 <img src={url} {...Astro.props} />
