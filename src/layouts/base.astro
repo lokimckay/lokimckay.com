@@ -33,10 +33,16 @@ const { title = siteName } = Astro.props;
           classList.remove(sys ? "dark" : "light");
           localStorage.setItem("theme", sys ? "light" : "dark");
         }
+        document.documentElement.dispatchEvent(
+          new CustomEvent("theme-change", {
+            detail: { theme: classList.contains("dark") ? "dark" : "light" },
+          })
+        );
       }
       checkTheme();
       document.addEventListener("astro:after-swap", checkTheme);
     </script>
+    <script src="./giscus-theme.ts"></script>
   </head>
   <body>
     <div class="bg"></div>

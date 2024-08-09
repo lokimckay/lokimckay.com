@@ -38,9 +38,14 @@ img {
 
 main,
 nav,
-article {
+article,
+.comments {
   margin: auto;
   width: 40rem;
+}
+
+article {
+  padding-bottom: 5em;
 }
 
 @media (max-width: 40rem) {

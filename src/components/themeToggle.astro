@@ -24,6 +24,11 @@ import "./themeToggle.css";
 
     const isDark = element.classList.contains("dark");
     localStorage.setItem("theme", isDark ? "dark" : "light");
+    document.documentElement.dispatchEvent(
+      new CustomEvent("theme-change", {
+        detail: { theme: isDark ? "dark" : "light" },
+      })
+    );
   }
 
   function addClickListener() {

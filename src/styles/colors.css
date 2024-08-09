@@ -27,10 +27,10 @@ html.dark {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url("https://storage.cloud.google.com/lokimckay-com/bg-dark.png");
+  background-image: url("https://s3.us-east-1.amazonaws.com/ltm.bio/bg-dark.png");
   background-size: cover;
 }
 
 html:not(.dark) .bg {
-  background-image: url("https://storage.cloud.google.com/lokimckay-com/bg-light.png");
+  background-image: url("https://s3.us-east-1.amazonaws.com/ltm.bio/bg-light.png");
 }
