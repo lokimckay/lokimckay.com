@@ -1,0 +1,22 @@
+---
+title: 📜 Automatically scroll a page
+date: 2024/08/11
+---
+
+Here's a cool little script I created that automatically scrolls down/up a page smoothly.
+
+Useful for showcasing parallax elements within an iframe.
+
+```js
+function frame() {
+  const el = document.documentElement;
+  el.scrollTop += el.dataset.autoScrollDir === "down" ? 1 : -1;
+  const hitBottom = el.scrollTop + el.clientHeight >= el.scrollHeight;
+  if (hitBottom) document.documentElement.dataset.autoScrollDir = "up";
+  const hitTop = el.scrollTop <= 0;
+  if (hitTop) document.documentElement.dataset.autoScrollDir = "down";
+  requestAnimationFrame(frame);
+}
+document.documentElement.dataset.autoScrollDir = "down";
+requestAnimationFrame(frame);
+```
