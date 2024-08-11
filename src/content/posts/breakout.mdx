@@ -1,0 +1,37 @@
+---
+title: 💥 Breaking a section out of a limited width container
+date: 2024/08/11
+---
+
+Here's my JS + CSS solution for breaking a section out of a limited width container.
+
+JS is needed to take into account the scrollbar width, which can vary between browsers.
+
+`scrollbarWidth.js`:
+
+```js
+function monitorScrollbarWidth() {
+  const observer = new ResizeObserver(() => {
+    const _prev =
+      document.documentElement.style.getPropertyValue("--scrollbar-width");
+    const prev = _prev && parseInt(_prev);
+    const current = window.innerWidth - document.documentElement.clientWidth;
+    if (prev !== `${current}px`)
+      document.documentElement.style.setProperty(
+        "--scrollbar-width",
+        `${current}px`
+      );
+  });
+
+  observer.observe(document.documentElement);
+}
+
+document.addEventListener("DOMContentLoaded", monitorScrollbarWidth);
+```
+
+```css
+.full-width {
+  margin-left: calc((50% - 50vw) + var(--scrollbar-width) / 2);
+  margin-right: calc((50% - 50vw) + var(--scrollbar-width) / 2);
+}
+```
