@@ -42,6 +42,7 @@ article,
 .comments {
   margin: auto;
   width: 40rem;
+  max-width: 100%;
 }
 
 article {
