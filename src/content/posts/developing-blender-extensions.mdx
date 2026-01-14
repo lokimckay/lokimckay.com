@@ -1,0 +1,169 @@
+---
+title: ⚙️ Developing blender extensions
+date: 2024/12/31
+---
+
+I want to hot-reload my Blender 4.3 extension while I develop its code externally in VS code.
+
+Couldn't find a nice clean solution that doesn't lock me into a IDE or use an overcomplicated system. Here's how I did it after much research.
+
+In a nutshell, we want to copy our extension into the `%BLENDER_HOME%/scripts/addons/our_addon` directory whenever our source files are changed.
+
+1. Setup a python package using whatever build tool you prefer. I used [pdm.](https://pdm.fming.dev)
+
+   ```shell
+   $ pdm init
+   ```
+
+1. Install [`platformdirs`](https://pypi.org/project/platformdirs/) as a dev dependency.
+
+   ```shell
+   $ pdm add --dev platformdirs
+   ```
+
+   It will help us find the Blender addons directory - which on windows is usually something like:
+
+   ```shell
+   "C:/Users/USER/AppData/Roaming/Blender Foundation/Blender/4.3"
+   ```
+
+1. Add `scripts/const.py`. Which contains some constants and paths we will need.
+
+   ```python
+   from platformdirs import user_data_dir
+   from os.path import dirname, join
+
+   # Paths
+
+   PROJECT_ROOT = dirname(dirname(__file__))
+   APPDATA_DIR = user_data_dir(
+       "Blender", "Blender Foundation", roaming=True)
+
+   # Config
+   ADDON_NAME = "my_addon"
+   BLENDER_VERSION = "4.3"
+   BLENDER_HOME = join(APPDATA_DIR, BLENDER_VERSION)
+
+
+   # Symlinking
+   SRC_DIR = join(PROJECT_ROOT, 'src', ADDON_NAME)
+   DEV_DIR = join(BLENDER_HOME, 'scripts', 'addons', ADDON_NAME)
+   ```
+
+1. Add `scripts/dev.py`. In here we symlink our source files into the Blender addons directory and start Blender with our addon loaded. We also tell blender to run `watch.py` which we will add next.
+
+   ```python
+   import subprocess
+   from const import SRC_DIR, DEV_DIR, ADDON_NAME
+
+
+   def symlink():
+       import os
+       if os.path.exists(DEV_DIR):
+           os.remove(DEV_DIR)
+       os.symlink(SRC_DIR, DEV_DIR)
+       print(f"Symlinked {SRC_DIR} to {DEV_DIR}")
+
+
+   def start_blender():
+       cmd = ["blender", "--addons", ADDON_NAME,
+           "--no-window-focus", "-P", "scripts/watch.py"]
+       print("$ %s" % " ".join(cmd))
+       subprocess.run(cmd)
+
+
+   if __name__ == '__main__':
+       symlink()
+       start_blender()
+   ```
+
+1. Add `scripts/watch.py`. Which we just told blender to run when it starts. This script will watch our source files and tell Blender to reload all scripts whenever they are changed.
+
+   ```python
+   from os.path import dirname, join
+   from threading import Thread
+   import sys
+   import time
+   import bpy
+   import pip
+   pip.main(['install', 'watchdog'])
+
+
+   def watch(dir, on_file_change, extensions):
+       from watchdog.observers import Observer
+       from watchdog.events import FileSystemEventHandler
+       print("Watching %s" % dir + " for file changes...")
+
+       class ChangeHandler(FileSystemEventHandler):
+           def __init__(self):
+               super(ChangeHandler, self).__init__()
+               self.has_update = False
+
+           def on_any_event(self, event):
+               source_path = event.src_path
+               if source_path.endswith(extensions):
+                   self.has_update = True
+
+           def clear_update(self):
+               self.has_update = False
+
+       event_handler = ChangeHandler()
+       observer = Observer()
+       observer.schedule(event_handler, dir, recursive=True)
+       observer.start()
+
+       try:
+           while observer.is_alive():
+               time.sleep(1)
+               if event_handler.has_update:
+                   on_file_change()
+                   event_handler.clear_update()
+       except Exception as e:
+           print(e)
+       finally:
+           observer.stop()
+           observer.join()
+
+
+   def on_file_change():
+       bpy.ops.script.reload()
+
+
+   def start_watching():
+       PROJECT_ROOT = dirname(dirname(__file__))
+       SRC_DIR = join(PROJECT_ROOT, 'src')
+       WATCH_EXT = ('.py', '.json')
+       watch(SRC_DIR, on_file_change, WATCH_EXT)
+
+
+   if __name__ == '__main__':
+       try:
+           watch_thread = Thread(target=start_watching)
+           watch_thread.start()
+       except (KeyboardInterrupt, SystemExit):
+           watch_thread.join(1)
+           print("[watch.py] exiting...")
+           sys.exit(0)
+   ```
+
+1. Lastly reload all submodules inside your addon whenever blender reloads scripts. We need to do this because blender only reloads the `__init__.py` file and leaves any relative module imports alone.
+
+```python
+
+
+def register():
+    hot_reload()
+
+...
+
+
+def hot_reload():
+
+    print("Hot reloading", sys.argv)
+    # Refresh submodules during development
+    if dev_mode:
+        import importlib
+        for module in modules:
+            importlib.reload(module)
+
+```

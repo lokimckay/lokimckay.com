@@ -1,0 +1,178 @@
+---
+title: 💥 Blender render farm on Google Cloud Platform
+date: 2024/11/07
+---
+
+! This actually cost more than I would have liked. A few dollars to complete this guide. As a result I don't recommnd following it, but I'll leave it up in case you want to see what I did. !
+
+I wanted to do some blender renders in the cloud and came across [this helpful article on Medium](https://medium.com/@bogdan.trach/cut-rendering-time-by-90-how-i-built-my-own-free-blender-render-farm-with-google-cloud-eeb388a822e7) that suggested using Google Cloud Platform and listed some compelling benchmark costs.
+
+Here is a more updated version of that article.
+
+## Provisioning
+
+1. Type quota in the search bar and go to All Quotas
+1. Filter for `gpus_all_regions`
+1. Request and increase if it is 0
+1. Follow the linked article above to provision a GPU VM
+
+Even with quota raised, you might still have trouble obtaining a GPU instance in your desired region because of high demand.
+
+I got lucky obtaining a V100 GPU in asia-east1.
+
+## VM setup
+
+These steps summarise [this Google article](https://cloud.google.com/compute/docs/gpus/install-drivers-gpu#ubuntu-driver-steps) BUT also make sure `Cloud API access scopes` is set to `Allow full access to all Cloud APIs` so that we can upload render output to a GCloud bucket and download our renders.
+
+1. SSH into the VM and runs these commands to install nvidia drivers:
+
+```sh
+curl -L https://github.com/GoogleCloudPlatform/compute-gpu-installation/releases/download/cuda-installer-v1.1.0/cuda_installer.pyz --output cuda_installer.pyz
+
+sudo python3 cuda_installer.pyz install_driver
+```
+
+My VM crashed the first time I ran the above commands. I had to restart the VM and run the commands again.
+
+1. [Verify the driver is installed by running `nvidia-smi`](https://cloud.google.com/compute/docs/gpus/install-drivers-gpu#verify-driver-install)
+
+## Install Blender
+
+```sh
+# Download Blender 4.2.3 LTS to the current directory
+wget https://download.blender.org/release/Blender4.2/blender-4.2.3-linux-x64.tar.xz
+
+# Extract blender to ./blender-4.2.3-linux-x64
+sudo tar -xvf blender-4.2.3-linux-x64.tar.xz
+```
+
+Also install necessary blender dependencies:
+
+```sh
+# sudo apt-get install libglu1 libxi6 libgconf-2-4 libxkbcommon0 libxrender1 libsm6
+sudo apt-get install libboost-all-dev libgl1-mesa-dev libglu1-mesa libsm-dev
+```
+
+Check blender is happy with:
+
+```sh
+./blender-4.2.3-linux-x64/blender --version
+```
+
+## Housekeeping
+
+Prepare our VM to receive our blend file
+
+```sh
+# Create projects directory and make it writable
+mkdir projects
+sudo chmod 777 projects
+cd projects
+```
+
+## Upload Blender file
+
+Uploading via the "File Upload" button works, but is very slow. Usually blend files are large so I suggest following these steps to first upload to Google Cloud Storage and then transfer to your VM.
+
+1. [Install gsutil](https://cloud.google.com/storage/docs/gsutil_install)
+1. Run these commands, replacing paths and filenames as necessary:
+
+```sh
+# On your local machine:
+gsutil cp my-blend-file.blend gs://my-bucket-name/my-subfolder
+
+# On your GCP VM:
+gsutil cp gs://my-bucket-name/my-subfolder/my-blend-file.blend .
+```
+
+## Ensure blender uses GPU
+
+1. Create the following `set_gpu.py` script and upload it to your VM home directory:
+
+```python
+import bpy
+import re
+scene = bpy.context.scene
+scene.cycles.device = 'GPU'
+prefs = bpy.context.preferences
+prefs.addons['cycles'].preferences.get_devices()
+cprefs = prefs.addons['cycles'].preferences
+print(cprefs)
+# Attempt to set GPU device types if available
+for compute_device_type in ('CUDA', 'OPENCL', 'NONE'):
+  try:
+    cprefs.compute_device_type = compute_device_type
+    print('Device found', compute_device_type)
+    break
+  except TypeError:
+    pass
+# Enable all CPU and GPU devices
+for device in cprefs.devices:
+    print('Considering', device)
+  if not re.match('intel', device.name, re.I):
+    print('Activating', device)
+    device.use = True
+```
+
+Here are the shell commands that will do that for you:
+
+```sh
+cd ~
+echo -e "import bpy\nimport re\nscene = bpy.context.scene\nscene.cycles.device = 'GPU'\nprefs = bpy.context.preferences\nprefs.addons['cycles'].preferences.get_devices()\ncprefs = prefs.addons['cycles'].preferences\nprint(cprefs)\nfor compute_device_type in ('CUDA', 'OPENCL', 'NONE'):\n  try:\n    cprefs.compute_device_type = compute_device_type\n    print('Device found', compute_device_type)\n    break\n  except TypeError:\n    pass\nfor device in cprefs.devices:\n  print('Considering', device)\n  if not re.match('intel', device.name, re.I):\n    print('Activating', device)\n    device.use = True" > set_gpu.py
+chmod 777 set_gpu.py
+
+blender-4.2.3-linux-x64/blender -b projects/my-blend-file.blend -P set_gpu.py
+# blender-4.2.3-linux-x64/blender -b projects/bubblegum/render3.blend -P set_gpu.py
+```
+
+## (optional) Configure render settings
+
+If you need to correct some render settings in the blend file, but don't want to reupload it, you can create a python script and run it against your blend file.
+
+```python
+import bpy
+scene = bpy.context.scene
+scene.cycles.samples = 128
+scene.cycles.adaptive_threshold = 0.01
+scene.render.resolution_percentage = 100
+scene.render.resolution_x = 1080
+scene.render.resolution_y = 1920
+scene.frame_start = 1
+scene.frame_end = 10
+scene.render.use_simplify = False
+bpy.ops.wm.save_mainfile()
+print("Render settings updated")
+```
+
+```sh
+ch ~
+echo -e "import bpy\nscene = bpy.context.scene\nscene.cycles.samples = 128\nscene.cycles.adaptive_threshold = 0.01\nscene.render.resolution_percentage = 100\nscene.render.resolution_x = 1080\nscene.render.resolution_y = 1920\nscene.frame_start = 1\nscene.frame_end = 330\nscene.render.use_simplify = False\nbpy.ops.wm.save_mainfile()\nprint('Render settings updated')" > set_render_settings.py
+
+blender-4.2.3-linux-x64/blender -b projects/my-blend-file.blend -P set_render_settings.py
+```
+
+[Relevant API docs](https://docs.blender.org/api/current/bpy.types.RenderSettings.html#bpy.types.RenderSettings)
+
+## Render
+
+Finally, we can render something.
+
+Let's render only the first 10 frames of our animation to test if everything is working.
+
+```sh
+# blender-4.2.3-linux-x64/blender -P set_gpu.py -b projects/bubblegum/render3.blend -o //out/_ -F OPEN_EXR -a -s 1 -e 10
+```
+
+[Commandline args docs](https://docs.blender.org/manual/en/latest/advanced/command_line/arguments.html)
+
+## Download render output
+
+```sh
+# On your GCP VM:
+gsutil -m cp -r ./projects/my-project/out gs://my-bucket/my-project/out
+# gsutil -m cp -r ./projects/bubblegum/out gs://ltm-blender-projects/bubblegum/out
+
+# On your local machine:
+gsutil -m cp -r gs://my-bucket-name/my-subfolder/out .
+# gsutil -m cp -r gs://ltm-blender-projects/bubblegum/out .
+```
