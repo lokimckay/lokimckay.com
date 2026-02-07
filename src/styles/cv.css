@@ -1,0 +1,180 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0 40px;
+  font-family: "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: #f4f6f8;
+  color: #1f2933;
+  line-height: 1.6;
+}
+
+main {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2rem 0;
+}
+
+h1 {
+  font-size: 2.6rem;
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+p {
+  margin: 0.4em 0 1em;
+  font-size: 1rem;
+}
+
+.subheading {
+  font-size: 1.2rem;
+  color: #4b5563;
+  margin: 0;
+}
+
+h2 {
+  font-size: 1.4rem;
+  margin-top: 1.8em;
+  margin-bottom: 0.8em;
+  padding-bottom: 0.3em;
+  border-bottom: 2px solid #e5e7eb;
+  color: #111827;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+ul:not(.list) {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul li {
+  margin-bottom: 0.4em;
+  font-size: 0.95rem;
+}
+
+a {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline dotted;
+}
+
+strong {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.card {
+  border-left: 3px solid #e5e7eb;
+  padding-left: 1em;
+  margin-bottom: 1.8em;
+}
+
+.card:hover {
+  border-left-color: #2563eb;
+}
+
+.card p {
+  margin-top: 0.4em;
+  font-size: 0.95rem;
+  color: #374151;
+}
+
+.name-and-pic {
+  display: inline-grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  gap: 1rem;
+}
+
+section#header {
+  margin-bottom: 1rem;
+}
+
+.profile {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+img.profile {
+  display: inline;
+  position: relative;
+  height: 48px;
+  top: 6px;
+  border-radius: 50%;
+}
+
+ul.contact {
+  display: inline-grid;
+  grid-auto-flow: row;
+}
+
+ul.contact li {
+  margin: 0;
+}
+
+ul.contact li a {
+  display: inline-grid;
+  grid-auto-flow: column;
+  align-items: center;
+  gap: 0.5em;
+}
+
+ul.contact li img {
+  width: 1.5em;
+}
+
+time,
+.time {
+  font-style: normal;
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+@media print {
+  body {
+    background: #ffffff;
+    padding: 0;
+    font-size: 12pt;
+  }
+
+  main {
+    max-width: 600px;
+  }
+
+  h2 {
+    margin-top: 1rem;
+    margin-bottom: 0;
+    border-bottom: 0;
+    font-size: 1.2rem;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .card {
+    margin-bottom: 1em;
+    border-left-color: #000;
+  }
+
+  .print-hide {
+    display: none;
+  }
+}
+
+@page {
+  size: auto;
+  margin: 0;
+}
