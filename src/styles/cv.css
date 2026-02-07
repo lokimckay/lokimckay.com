@@ -5,6 +5,7 @@
 body {
   margin: 0;
   padding: 0 40px;
+  min-width: 400px;
   font-family: "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   background-color: #f4f6f8;
   color: #1f2933;
@@ -177,4 +178,16 @@ time,
 @page {
   size: auto;
   margin: 0;
+}
+
+/* mobile */
+@media only screen and (max-width: 600px) {
+  body {
+    padding: 24px;
+  }
+
+  main {
+    max-width: none;
+    padding: 1rem 0;
+  }
 }
