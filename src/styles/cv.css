@@ -78,6 +78,7 @@ strong {
   border-left: 3px solid #e5e7eb;
   padding-left: 1em;
   margin-bottom: 1.8em;
+  line-height: 1.4;
 }
 
 .card:hover {
@@ -167,7 +168,12 @@ time,
 
   .card {
     margin-bottom: 1em;
+    border-left-width: 1px;
     border-left-color: #000;
+  }
+
+  .card p {
+    margin-bottom: 0.5em;
   }
 
   .print-hide {
